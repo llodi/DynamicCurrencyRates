@@ -3,24 +3,10 @@
 //  currency
 //
 //  Created by Ilya on 27/02/2019.
-//  Copyright © 2019 Revolt. All rights reserved.
+//  Copyright © 2019 Ilya. All rights reserved.
 //
 
 import Foundation
-
-class RatesViewModel {
-    var currency: String
-    var rate:String
-    
-    init(currency: String, rate: String) {
-        self.currency = currency
-        self.rate = rate
-    }
-}
-
-protocol AssembleProtocol {
-    func assemble<M>(view: CurrencyRatesViewProtocol, parameters: M)
-}
 
 protocol CurrencyRatesViewProtocol: class {
     
@@ -38,13 +24,13 @@ protocol CurrencyRatesPresenterProtocol {
     
     func onFullReloadTableFinish()
     
-    func onChange(currency: String)
+    func onSelect(currency: String)
     func onChange(amount: String)
 }
 
 
 protocol CurrencyRatesIntercatorInputProtocol {
-    func change(currency: String)
+    func select(currency: String)
     func change(amount: String)
     func retrieveRates()
     func startRetrievingByTimer()

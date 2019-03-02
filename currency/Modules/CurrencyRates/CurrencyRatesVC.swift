@@ -53,7 +53,7 @@ class CurrencyRatesVC: UIViewController, CurrencyRatesViewProtocol {
         }
         
         adapter.onSelectCurrency = { [weak weakSelf = self] currency in
-            weakSelf?.presenter?.onChange(currency: currency)
+            weakSelf?.presenter?.onSelect(currency: currency)
         }
         
         adapter.onRowMovingComplete = { [weak weakSelf = self] in

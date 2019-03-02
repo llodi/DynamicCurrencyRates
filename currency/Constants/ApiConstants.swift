@@ -3,7 +3,7 @@
 //  currency
 //
 //  Created by Ilya Dolgopolov on 27/02/2019.
-//  Copyright © 2019 Revolt. All rights reserved.
+//  Copyright © 2019 Ilya. All rights reserved.
 //
 
 import Foundation

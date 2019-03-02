@@ -3,7 +3,7 @@
 //  currency
 //
 //  Created by Ilya on 02/03/2019.
-//  Copyright © 2019 Revolt. All rights reserved.
+//  Copyright © 2019 Ilya. All rights reserved.
 //
 
 import Foundation
@@ -21,6 +21,8 @@ class CurrencyRatesPresenter: CurrencyRatesPresenterProtocol, CurrencyRatesInter
         self.interactor = interactor
     }
     
+    // MARK: - CurrencyRatesPresenterProtocol
+    
     func viewDidLoad() {
         interactor?.retrieveRates()
     }
@@ -29,17 +31,13 @@ class CurrencyRatesPresenter: CurrencyRatesPresenterProtocol, CurrencyRatesInter
         interactor?.startRetrievingByTimer()
     }
     
-    func onChange(currency: String) {
-        interactor?.change(currency: currency)
+    func onSelect(currency: String) {
+        interactor?.select(currency: currency)
     }
     
     func onChange(amount: String) {
         interactor?.change(amount: amount)
     }
-    
-    
-    // MARK: - CurrencyRatesPresenterProtocol
-    
     
     
     // MARK: - CurrencyRatesIntercatorOutputProtocol
@@ -50,7 +48,7 @@ class CurrencyRatesPresenter: CurrencyRatesPresenterProtocol, CurrencyRatesInter
     }
     
     func onUpdate(rates: [(name: String, rate: NSDecimalNumber)]) {
-        var vm = convert(model: rates)        
+        let vm = convert(model: rates)
         view?.update(rates: vm)
     }
     
@@ -65,7 +63,7 @@ class CurrencyRatesPresenter: CurrencyRatesPresenterProtocol, CurrencyRatesInter
     // MARK: - Private Methods
     
     private func convert(model: [(name: String, rate: NSDecimalNumber)]) -> [RatesViewModel] {
-        var vm = model.compactMap {
+        let vm = model.compactMap {
             RatesViewModel(currency: $0.name, rate: DecimalFormatterUtils.convert(decimal: $0.rate))
         }
         return vm

@@ -15,6 +15,7 @@
 		4C12DE6B222A99DE009C201C /* CurrencyRatesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C12DE6A222A99DE009C201C /* CurrencyRatesVC.swift */; };
 		4C12DE75222ACE29009C201C /* SingleSectionBaseAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C12DE74222ACE29009C201C /* SingleSectionBaseAdapter.swift */; };
 		4C12DE77222ACE38009C201C /* CurrencyRatesAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C12DE76222ACE38009C201C /* CurrencyRatesAdapter.swift */; };
+		4C12DE79222AD6FE009C201C /* RatesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C12DE78222AD6FE009C201C /* RatesViewModel.swift */; };
 		4C23045A22264B4900998D9A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C23045922264B4900998D9A /* AppDelegate.swift */; };
 		4C23045F22264B4900998D9A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C23045D22264B4900998D9A /* Main.storyboard */; };
 		4C23046122264B4B00998D9A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C23046022264B4B00998D9A /* Assets.xcassets */; };
@@ -67,6 +68,7 @@
 		4C12DE6A222A99DE009C201C /* CurrencyRatesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyRatesVC.swift; sourceTree = "<group>"; };
 		4C12DE74222ACE29009C201C /* SingleSectionBaseAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleSectionBaseAdapter.swift; sourceTree = "<group>"; };
 		4C12DE76222ACE38009C201C /* CurrencyRatesAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyRatesAdapter.swift; sourceTree = "<group>"; };
+		4C12DE78222AD6FE009C201C /* RatesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatesViewModel.swift; sourceTree = "<group>"; };
 		4C23045622264B4900998D9A /* currency.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = currency.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C23045922264B4900998D9A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4C23045E22264B4900998D9A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -294,6 +296,7 @@
 				4C12DE64222A8C31009C201C /* CurrencyRatesIntercator.swift */,
 				4C12DE68222A943D009C201C /* CurrencyRatesPresenter.swift */,
 				4C12DE6A222A99DE009C201C /* CurrencyRatesVC.swift */,
+				4C12DE78222AD6FE009C201C /* RatesViewModel.swift */,
 				4C12DE76222ACE38009C201C /* CurrencyRatesAdapter.swift */,
 			);
 			path = CurrencyRates;
@@ -462,6 +465,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C12DE79222AD6FE009C201C /* RatesViewModel.swift in Sources */,
 				4C23048622264DFD00998D9A /* ApiError.swift in Sources */,
 				4C2304B222264E8A00998D9A /* UICollectionView+Reusable.swift in Sources */,
 				4C23049722264E5100998D9A /* Macro.swift in Sources */,
