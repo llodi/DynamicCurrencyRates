@@ -1,4 +1,4 @@
-// MARK: - Mocks generated from file: currency/Modules/CurrencyRates/Protocols/CurrencyRatesModuleProtocols.swift at 2019-03-03 09:12:42 +0000
+// MARK: - Mocks generated from file: currency/Modules/CurrencyRates/Protocols/CurrencyRatesModuleProtocols.swift at 2019-03-03 09:55:08 +0000
 
 //
 //  CurrencyModuleProtocols.swift
@@ -483,7 +483,7 @@ class MockCurrencyRatesIntercatorOutputProtocol: CurrencyRatesIntercatorOutputPr
 }
 
 
-// MARK: - Mocks generated from file: currency/Modules/CurrencyRates/Protocols/CurrencyRatesViewProtocol.swift at 2019-03-03 09:12:42 +0000
+// MARK: - Mocks generated from file: currency/Modules/CurrencyRates/Protocols/CurrencyRatesViewProtocol.swift at 2019-03-03 09:55:08 +0000
 
 //
 //  CurrencyRatesViewProtocol.swift
