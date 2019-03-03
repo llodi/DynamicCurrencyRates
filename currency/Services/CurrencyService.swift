@@ -14,7 +14,7 @@ class CurrencyService: BaseService {
     func retrieveCurrencyRates(currency: String, completion: @escaping ((CurrencyRates?, ApiErrorProtocol?) -> ())) {
         
         var parameters = Parameters()
-        let arguments = CurrencyRatesRequstArguments()
+        var arguments = CurrencyRatesRequstArguments()
         arguments.base = currency
         parameters.arguments = arguments
         request(path: .latest,

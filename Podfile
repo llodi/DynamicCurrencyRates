@@ -14,3 +14,7 @@ pod 'Alamofire'
 
 end
 
+target 'currencyTests' do
+    pod 'Cuckoo', '~> 0.11.3'
+end
+

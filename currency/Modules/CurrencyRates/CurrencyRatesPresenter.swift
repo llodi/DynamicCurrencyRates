@@ -57,7 +57,7 @@ class CurrencyRatesPresenter: CurrencyRatesPresenterProtocol, CurrencyRatesInter
     }
     
     func onUnknownError() {
-        
+        view?.showUnknownError()
     }
     
     // MARK: - Private Methods

@@ -8,16 +8,6 @@
 
 import Foundation
 
-protocol CurrencyRatesViewProtocol: class {
-    
-    var presenter: CurrencyRatesPresenterProtocol? { get set }
-    
-    func show(rates: [RatesViewModel])
-    func update(rates: [RatesViewModel])
-    
-    func showError(reason: String)
-}
-
 
 protocol CurrencyRatesPresenterProtocol {
     func viewDidLoad()

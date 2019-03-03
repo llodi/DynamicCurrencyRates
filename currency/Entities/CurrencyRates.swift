@@ -10,14 +10,14 @@ import Foundation
 import HandyJSON
 
 
-class CurrencyRates: ApiConvertable {
+struct CurrencyRates: ApiConvertable {
     var base: String = ""
     var date: String?
     var rates: [(name: String, rate: NSDecimalNumber)] = []
     
     
     
-    func mapping(mapper: HelpingMapper) {
+    mutating func mapping(mapper: HelpingMapper) {
         
         
         mapper <<< rates <-- TransformOf<[(name: String, rate: NSDecimalNumber)], NSDictionary>(fromJSON:
@@ -42,12 +42,10 @@ class CurrencyRates: ApiConvertable {
         })
     }
     
-    required init() { }
+//    required init() { }
 }
 
 
-class CurrencyRatesRequstArguments: ApiConvertable {
+struct CurrencyRatesRequstArguments: ApiConvertable {
     var base: String?
-    
-    required init() { }
 }
