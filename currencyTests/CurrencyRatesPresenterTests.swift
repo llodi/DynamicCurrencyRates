@@ -34,6 +34,7 @@ class CurrencyRatesPresenterTests: XCTestCase {
     
     func initStubs() {
         stub(interactor) { stub in
+            when(stub.stopTimer()).thenDoNothing()
             when(stub.change(amount: anyString())).thenDoNothing()
             when(stub.select(currency: anyString())).thenDoNothing()
             when(stub.retrieveRates()).thenDoNothing()
@@ -49,8 +50,18 @@ class CurrencyRatesPresenterTests: XCTestCase {
     }
     
     func test_viewDidLoad() {
-        presenter.viewDidLoad()
+        verifyNoMoreInteractions(interactor)
+    }
+    
+    func test_viewWillAppear() {
+        presenter.viewWillAppear()
         verify(interactor).retrieveRates()
+        verifyNoMoreInteractions(interactor)
+    }
+    
+    func test_viewWillDisappear() {
+        presenter.viewWillDisappear()
+        verify(interactor).stopTimer()
         verifyNoMoreInteractions(interactor)
     }
     

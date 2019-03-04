@@ -23,8 +23,14 @@ class CurrencyRatesPresenter: CurrencyRatesPresenterProtocol, CurrencyRatesInter
     
     // MARK: - CurrencyRatesPresenterProtocol
     
-    func viewDidLoad() {
+    func viewDidLoad() { }
+    
+    func viewWillAppear() {
         interactor?.retrieveRates()
+    }
+    
+    func viewWillDisappear() {
+        interactor?.stopTimer()
     }
     
     func onFullReloadTableFinish() {

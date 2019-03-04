@@ -11,6 +11,8 @@ import Foundation
 
 protocol CurrencyRatesPresenterProtocol {
     func viewDidLoad()
+    func viewWillAppear()
+    func viewWillDisappear()
     
     func onFullReloadTableFinish()
     
@@ -24,6 +26,7 @@ protocol CurrencyRatesIntercatorInputProtocol {
     func change(amount: String)
     func retrieveRates()
     func startRetrievingByTimer()
+    func stopTimer()
 }
 
 protocol CurrencyRatesIntercatorOutputProtocol: class {

@@ -40,6 +40,10 @@ class CurrencyRatesIntercator: CurrencyRatesIntercatorInputProtocol {
         }
     }
     
+    func stopTimer() {
+        timer?.invalidate()
+    }
+    
     func select(currency: String) {
         parameters.currentCurrency = currency
     }

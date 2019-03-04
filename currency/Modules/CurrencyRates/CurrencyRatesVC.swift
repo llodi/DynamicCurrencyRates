@@ -39,6 +39,17 @@ class CurrencyRatesVC: UIViewController, CurrencyRatesViewProtocol {
         presenter?.viewDidLoad()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        presenter?.viewWillAppear()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        presenter?.viewWillDisappear()
+    }
     
     // MARK: - CurrencyRatesViewProtocol
     

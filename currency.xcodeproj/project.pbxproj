@@ -10,13 +10,10 @@
 		4C0AF808222BAAF700951FCA /* RatesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C12DE78222AD6FE009C201C /* RatesViewModel.swift */; };
 		4C0AF809222BB2C200951FCA /* DecimalFormatterUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C23048A22264E5100998D9A /* DecimalFormatterUtils.swift */; };
 		4C0AF810222BBA3100951FCA /* CurrencyRatesViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0AF80F222BBA3100951FCA /* CurrencyRatesViewProtocol.swift */; };
-		4C0AF812222BBBC200951FCA /* GeneratedMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0AF811222BBBC200951FCA /* GeneratedMocks.swift */; };
 		4C0AF814222BBD9400951FCA /* CurrencyRatesModuleProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C268B8B2226E26200F70326 /* CurrencyRatesModuleProtocols.swift */; };
 		4C0AF815222BBD9400951FCA /* CurrencyRatesViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0AF80F222BBA3100951FCA /* CurrencyRatesViewProtocol.swift */; };
-		4C0AF819222BC20800951FCA /* Rates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0AF818222BC20800951FCA /* Rates.swift */; };
 		4C0AF81A222BC37E00951FCA /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C23048522264DFD00998D9A /* ApiError.swift */; };
 		4C0AF81D222BC5A400951FCA /* CurrencyRatesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C12DE68222A943D009C201C /* CurrencyRatesPresenter.swift */; };
-		4C0AF81E222BCFB200951FCA /* CurrencyRatesPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0AF81B222BC50000951FCA /* CurrencyRatesPresenterTests.swift */; };
 		4C12DE61222A8B72009C201C /* CurrencyRateItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C12DE60222A8B72009C201C /* CurrencyRateItemCell.swift */; };
 		4C12DE63222A8BA0009C201C /* CurrencyRateItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C12DE62222A8BA0009C201C /* CurrencyRateItemCell.xib */; };
 		4C12DE65222A8C31009C201C /* CurrencyRatesIntercator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C12DE64222A8C31009C201C /* CurrencyRatesIntercator.swift */; };
@@ -30,7 +27,6 @@
 		4C23045F22264B4900998D9A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C23045D22264B4900998D9A /* Main.storyboard */; };
 		4C23046122264B4B00998D9A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C23046022264B4B00998D9A /* Assets.xcassets */; };
 		4C23046422264B4B00998D9A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C23046222264B4B00998D9A /* LaunchScreen.storyboard */; };
-		4C23046F22264B4B00998D9A /* currencyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C23046E22264B4B00998D9A /* currencyTests.swift */; };
 		4C23047B22264BC300998D9A /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C23047A22264BC300998D9A /* Service.swift */; };
 		4C23048022264D3D00998D9A /* Convertable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C23047F22264D3D00998D9A /* Convertable.swift */; };
 		4C23048222264D5B00998D9A /* ApiParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C23048122264D5B00998D9A /* ApiParameters.swift */; };
@@ -55,6 +51,8 @@
 		4C2304C72226523800998D9A /* CurrencyRates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2304C62226523800998D9A /* CurrencyRates.swift */; };
 		4C268B8C2226E26200F70326 /* CurrencyRatesModuleProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C268B8B2226E26200F70326 /* CurrencyRatesModuleProtocols.swift */; };
 		4C268B8F2226E28F00F70326 /* CurrencyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C268B8E2226E28F00F70326 /* CurrencyCell.swift */; };
+		4C909316222CDEEC00965200 /* GeneratedMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0AF811222BBBC200951FCA /* GeneratedMocks.swift */; };
+		4CCC26DF222CE1EA00D1D445 /* CurrencyRatesPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0AF81B222BC50000951FCA /* CurrencyRatesPresenterTests.swift */; };
 		BFA779F13A93E4C6EBC622F0 /* libPods-currencyTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 67B1F718B6C2A34F2D5ABC9A /* libPods-currencyTests.a */; };
 		C1D4A7250B7CBA485EC37C22 /* Pods_currency.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C851475969B1E3D1AFE3D30 /* Pods_currency.framework */; };
 /* End PBXBuildFile section */
@@ -90,7 +88,6 @@
 		4C23046322264B4B00998D9A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4C23046522264B4B00998D9A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4C23046A22264B4B00998D9A /* currencyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = currencyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		4C23046E22264B4B00998D9A /* currencyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = currencyTests.swift; sourceTree = "<group>"; };
 		4C23047022264B4B00998D9A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4C23047A22264BC300998D9A /* Service.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		4C23047F22264D3D00998D9A /* Convertable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Convertable.swift; sourceTree = "<group>"; };
@@ -205,7 +202,6 @@
 			isa = PBXGroup;
 			children = (
 				4C0AF811222BBBC200951FCA /* GeneratedMocks.swift */,
-				4C23046E22264B4B00998D9A /* currencyTests.swift */,
 				4C0AF81B222BC50000951FCA /* CurrencyRatesPresenterTests.swift */,
 				4C23047022264B4B00998D9A /* Info.plist */,
 				4C0AF818222BC20800951FCA /* Rates.swift */,
@@ -493,7 +489,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Define output file. Change \"$PROJECT_DIR/${PROJECT_NAME}Tests\" to your test's root source folder, if it's not the default name.\nOUTPUT_FILE=\"${PROJECT_NAME}Tests/GeneratedMocks.swift\"\necho \"Generated Mocks File = $OUTPUT_FILE\"\n\n# Define input directory. Change \"${PROJECT_DIR}/${PROJECT_NAME}\" to your project's root source folder, if it's not the default name.\nINPUT_DIR=\"${PROJECT_DIR}/${PROJECT_NAME}\"\necho \"Mocks Input Directory = $INPUT_DIR\"\n\n# Generate mock files, include as many input files as you'd like to create mocks for.\n\"${SRCROOT}/Pods/Cuckoo/run\" generate \\\n--output \"${OUTPUT_FILE}\" \\\n\"$INPUT_DIR/Modules/CurrencyRates/Protocols/CurrencyRatesModuleProtocols.swift\" \\\n\"$INPUT_DIR/Modules/CurrencyRates/Protocols/CurrencyRatesViewProtocol.swift\" \n\n# ... and so forth, the last line should never end with a backslash\n\n# After running once, locate `GeneratedMocks.swift` and drag it into your Xcode test target group.\n";
+			shellScript = "\n# Define output file. Change \"$PROJECT_DIR/${PROJECT_NAME}Tests\" to your test's root source folder, if it's not the default name.\nOUTPUT_FILE=\"${PROJECT_NAME}Tests/GeneratedMocks.swift\"\necho \"Generated Mocks File = $OUTPUT_FILE\"\n\n# Define input directory. Change \"${PROJECT_DIR}/${PROJECT_NAME}\" to your project's root source folder, if it's not the default name.\nINPUT_DIR=\"${PROJECT_DIR}/${PROJECT_NAME}\"\necho \"Mocks Input Directory = $INPUT_DIR\"\n\n# Generate mock files, include as many input files as you'd like to create mocks for.\n\"${SRCROOT}/Pods/Cuckoo/run\" generate \\\n--output \"${OUTPUT_FILE}\" \\\n\"$INPUT_DIR/Modules/CurrencyRates/Protocols/CurrencyRatesModuleProtocols.swift\" \\\n\"$INPUT_DIR/Modules/CurrencyRates/Protocols/CurrencyRatesViewProtocol.swift\" \n\n# ... and so forth, the last line should never end with a backslash\n\n# After running once, locate `GeneratedMocks.swift` and drag it into your Xcode test target group.\n";
 		};
 		82377ADD86FA46A1FD48982F /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -589,16 +585,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4C23046F22264B4B00998D9A /* currencyTests.swift in Sources */,
 				4C0AF815222BBD9400951FCA /* CurrencyRatesViewProtocol.swift in Sources */,
 				4C0AF808222BAAF700951FCA /* RatesViewModel.swift in Sources */,
 				4C0AF809222BB2C200951FCA /* DecimalFormatterUtils.swift in Sources */,
-				4C0AF819222BC20800951FCA /* Rates.swift in Sources */,
+				4C909316222CDEEC00965200 /* GeneratedMocks.swift in Sources */,
 				4C0AF81D222BC5A400951FCA /* CurrencyRatesPresenter.swift in Sources */,
 				4C0AF81A222BC37E00951FCA /* ApiError.swift in Sources */,
 				4C0AF814222BBD9400951FCA /* CurrencyRatesModuleProtocols.swift in Sources */,
-				4C0AF812222BBBC200951FCA /* GeneratedMocks.swift in Sources */,
-				4C0AF81E222BCFB200951FCA /* CurrencyRatesPresenterTests.swift in Sources */,
+				4CCC26DF222CE1EA00D1D445 /* CurrencyRatesPresenterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
