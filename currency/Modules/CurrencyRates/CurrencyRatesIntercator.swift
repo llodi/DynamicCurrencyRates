@@ -16,13 +16,13 @@ class CurrencyRatesModuleParameters {
 
 class CurrencyRatesIntercator: CurrencyRatesIntercatorInputProtocol {
 
-    var service: CurrencyService
     var parameters: CurrencyRatesModuleParameters
     weak var output: CurrencyRatesIntercatorOutputProtocol?
     
-    private var timer: Timer?
+    private var service: CurrencyService
     
-    init(service: BaseService,         
+    
+    init(service: Service,
          parameters: CurrencyRatesModuleParameters) {
        
         self.service = service as! CurrencyService
@@ -33,15 +33,8 @@ class CurrencyRatesIntercator: CurrencyRatesIntercatorInputProtocol {
     
     // MARK: - CurrencyRatesIntercatorInputProtocol
     
-    func startRetrievingByTimer() {
-        timer?.invalidate()
-        timer = Timer.scheduledTimer(withTimeInterval: parameters.launchDuration, repeats: true) { [weak weakSelf = self] (timer) in
-            weakSelf?.retrieve(firstLaunch: false)
-        }
-    }
-    
-    func stopTimer() {
-        timer?.invalidate()
+    func timer(duration: @escaping (Double) -> ()) {
+        duration(parameters.launchDuration)
     }
     
     func select(currency: String) {
@@ -52,8 +45,17 @@ class CurrencyRatesIntercator: CurrencyRatesIntercatorInputProtocol {
         parameters.amount = amount.isEmpty ? 0 : NSDecimalNumber(string: amount)
     }
     
-    func retrieveRates() {
-        retrieve(firstLaunch: true)
+    func retrieveRates(firstLaunch: Bool) {
+        service.retrieveCurrencyRates(currency: parameters.currentCurrency) { [weak weakSelf = self] (currencyRates, error) in
+            
+            if let rates = currencyRates {
+                weakSelf?.handleSuccessRatesResponse(firstLaunch: firstLaunch, currencyRates: rates)
+            } else if let err = error {
+                weakSelf?.output?.onError(reason: err.localizedMessage)
+            } else {
+                weakSelf?.output?.onUnknownError()
+            }
+        }
     }
     
     // MARK: - Private Methods
@@ -66,19 +68,6 @@ class CurrencyRatesIntercator: CurrencyRatesIntercatorInputProtocol {
             output?.onRetrieve(rates: rateItems)
         } else {
             output?.onUpdate(rates: rateItems)
-        }
-    }
-    
-    private func retrieve(firstLaunch: Bool = true) {
-        service.retrieveCurrencyRates(currency: parameters.currentCurrency) { [weak weakSelf = self] (currencyRates, error) in
-            
-            if let rates = currencyRates {
-                weakSelf?.handleSuccessRatesResponse(firstLaunch: firstLaunch, currencyRates: rates)
-            } else if let err = error {
-                weakSelf?.output?.onError(reason: err.localizedMessage)
-            } else {
-                weakSelf?.output?.onUnknownError()
-            }
         }
     }
 }

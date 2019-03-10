@@ -26,15 +26,21 @@ class CurrencyRatesPresenter: CurrencyRatesPresenterProtocol, CurrencyRatesInter
     func viewDidLoad() { }
     
     func viewWillAppear() {
-        interactor?.retrieveRates()
+        interactor?.retrieveRates(firstLaunch: true)
     }
     
     func viewWillDisappear() {
-        interactor?.stopTimer()
+        view?.stopTimer()
     }
     
     func onFullReloadTableFinish() {
-        interactor?.startRetrievingByTimer()
+        interactor?.timer(duration: { [weak weakSelf = self] (seconds) in
+            weakSelf?.view?.startTimer(with: seconds)
+        })
+    }
+    
+    func onInvokeTimer() {
+        interactor?.retrieveRates(firstLaunch: false)
     }
     
     func onSelect(currency: String) {

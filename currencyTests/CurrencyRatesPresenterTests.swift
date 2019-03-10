@@ -34,14 +34,16 @@ class CurrencyRatesPresenterTests: XCTestCase {
     
     func initStubs() {
         stub(interactor) { stub in
-            when(stub.stopTimer()).thenDoNothing()
+            when(stub.timer(duration: anyClosure())).thenDoNothing()
             when(stub.change(amount: anyString())).thenDoNothing()
             when(stub.select(currency: anyString())).thenDoNothing()
-            when(stub.retrieveRates()).thenDoNothing()
-            when(stub.startRetrievingByTimer()).thenDoNothing()
+            when(stub.retrieveRates(firstLaunch: true)).thenDoNothing()
+            when(stub.retrieveRates(firstLaunch: false)).thenDoNothing()
         }
         
         stub(view) { stub in
+            when(stub.startTimer(with: any())).thenDoNothing()
+            when(stub.stopTimer()).thenDoNothing()
             when(stub.showError(reason: anyString())).thenDoNothing()
             when(stub.show(rates: any())).thenDoNothing()
             when(stub.update(rates: any())).thenDoNothing()
@@ -55,19 +57,33 @@ class CurrencyRatesPresenterTests: XCTestCase {
     
     func test_viewWillAppear() {
         presenter.viewWillAppear()
-        verify(interactor).retrieveRates()
+        verify(interactor).retrieveRates(firstLaunch: true)
         verifyNoMoreInteractions(interactor)
     }
     
     func test_viewWillDisappear() {
         presenter.viewWillDisappear()
-        verify(interactor).stopTimer()
+        verify(view).stopTimer()
         verifyNoMoreInteractions(interactor)
     }
     
     func test_onFullReloadTableFinish() {
         presenter.onFullReloadTableFinish()
-        verify(interactor).startRetrievingByTimer()
+        typealias TimerClosure = (Double) -> ()
+        
+        let captor = ArgumentCaptor<TimerClosure>()
+        verify(interactor).timer(duration: captor.capture())
+        captor.value!(1)
+        
+        verifyNoMoreInteractions(interactor)
+        
+        verify(view).startTimer(with: any())
+        verifyNoMoreInteractions(view)
+    }
+    
+    func test_onTimerInvoke() {
+        presenter.onInvokeTimer()
+        verify(interactor).retrieveRates(firstLaunch: false)
         verifyNoMoreInteractions(interactor)
     }
     

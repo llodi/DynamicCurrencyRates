@@ -13,6 +13,9 @@ protocol CurrencyRatesViewProtocol: class {
     
     var presenter: CurrencyRatesPresenterProtocol? { get set }
     
+    func startTimer(with duration: Double) 
+    func stopTimer()
+    
     func show(rates: [RatesViewModel])
     func update(rates: [RatesViewModel])
     

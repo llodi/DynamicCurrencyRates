@@ -28,6 +28,8 @@ class CurrencyRatesVC: UIViewController, CurrencyRatesViewProtocol {
         }
     }
     
+    private var timer: Timer?
+    
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
@@ -52,6 +54,17 @@ class CurrencyRatesVC: UIViewController, CurrencyRatesViewProtocol {
     }
     
     // MARK: - CurrencyRatesViewProtocol
+    
+    func startTimer(with duration: Double) {
+        timer?.invalidate()
+        timer = Timer.scheduledTimer(withTimeInterval: duration, repeats: true) { [weak weakSelf = self] (timer) in
+            weakSelf?.presenter?.onInvokeTimer()
+        }
+    }
+    
+    func stopTimer() {
+        timer?.invalidate()
+    }
     
     func show(rates: [RatesViewModel]) {
         

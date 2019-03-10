@@ -18,15 +18,16 @@ protocol CurrencyRatesPresenterProtocol {
     
     func onSelect(currency: String)
     func onChange(amount: String)
+    
+    func onInvokeTimer()
 }
 
 
 protocol CurrencyRatesIntercatorInputProtocol {
     func select(currency: String)
     func change(amount: String)
-    func retrieveRates()
-    func startRetrievingByTimer()
-    func stopTimer()
+    func retrieveRates(firstLaunch: Bool)
+    func timer(duration: @escaping (Double) -> ())
 }
 
 protocol CurrencyRatesIntercatorOutputProtocol: class {
