@@ -3,7 +3,7 @@
 //  currencyTests
 //
 //  Created by Ilya on 03/03/2019.
-//  Copyright © 2019 Revolt. All rights reserved.
+//  Copyright © 2019 Ilya. All rights reserved.
 //
 
 import XCTest
@@ -34,11 +34,7 @@ class CurrencyRatesPresenterTests: XCTestCase {
     
     func initStubs() {
         stub(interactor) { stub in
-            when(stub.timer(duration: anyClosure())).thenDoNothing()
-            when(stub.change(amount: anyString())).thenDoNothing()
-            when(stub.select(currency: anyString())).thenDoNothing()
-            when(stub.retrieveRates(firstLaunch: true)).thenDoNothing()
-            when(stub.retrieveRates(firstLaunch: false)).thenDoNothing()
+            when(stub.retrieveRates(currency: anyString(), amount: any())).thenDoNothing()
         }
         
         stub(view) { stub in
@@ -53,11 +49,12 @@ class CurrencyRatesPresenterTests: XCTestCase {
     
     func test_viewDidLoad() {
         verifyNoMoreInteractions(interactor)
+        XCTAssertEqual(presenter.isFirstLaunch, true)
     }
     
     func test_viewWillAppear() {
         presenter.viewWillAppear()
-        verify(interactor).retrieveRates(firstLaunch: true)
+        verify(interactor).retrieveRates(currency: anyString(), amount: any())
         verifyNoMoreInteractions(interactor)
     }
     
@@ -69,13 +66,6 @@ class CurrencyRatesPresenterTests: XCTestCase {
     
     func test_onFullReloadTableFinish() {
         presenter.onFullReloadTableFinish()
-        typealias TimerClosure = (Double) -> ()
-        
-        let captor = ArgumentCaptor<TimerClosure>()
-        verify(interactor).timer(duration: captor.capture())
-        captor.value!(1)
-        
-        verifyNoMoreInteractions(interactor)
         
         verify(view).startTimer(with: any())
         verifyNoMoreInteractions(view)
@@ -83,32 +73,40 @@ class CurrencyRatesPresenterTests: XCTestCase {
     
     func test_onTimerInvoke() {
         presenter.onInvokeTimer()
-        verify(interactor).retrieveRates(firstLaunch: false)
+        verify(interactor).retrieveRates(currency: anyString(), amount: any())
         verifyNoMoreInteractions(interactor)
     }
     
     func test_onSelect() {
         presenter.onSelect(currency: selectedCurrency)
-        verify(interactor).select(currency: selectedCurrency)
+        XCTAssertEqual(presenter.currentCurrency, selectedCurrency)
         verifyNoMoreInteractions(interactor)
+        verifyNoMoreInteractions(view)
     }
     
     func test_onChange() {
         presenter.onChange(amount: changedRate)
-        verify(interactor).change(amount: changedRate)
+        var decimalAmount = NSDecimalNumber(string: changedRate)
+        decimalAmount = decimalAmount == NSDecimalNumber.notANumber ? 0 : NSDecimalNumber(string: changedRate)
+        XCTAssertEqual(presenter.amount, decimalAmount)
         verifyNoMoreInteractions(interactor)
+        verifyNoMoreInteractions(view)
     }
     
     func test_onShowRates() {
+        presenter.isFirstLaunch = true
         presenter.onRetrieve(rates: rates)
         verify(view).show(rates: any())
         verifyNoMoreInteractions(view)
+        XCTAssertEqual(presenter.isFirstLaunch, false)
     }
     
     func test_onUpdateRates() {
-        presenter.onUpdate(rates: rates)
+        presenter.isFirstLaunch = false
+        presenter.onRetrieve(rates: rates)
         verify(view).update(rates: any())
         verifyNoMoreInteractions(view)
+        XCTAssertEqual(presenter.isFirstLaunch, false)
     }
     
     func test_ErrorWithReason() {

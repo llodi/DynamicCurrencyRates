@@ -1,4 +1,4 @@
-// MARK: - Mocks generated from file: currency/Entities/CurrencyRates.swift at 2019-03-10 08:42:41 +0000
+// MARK: - Mocks generated from file: currency/Entities/CurrencyRates.swift at 2019-03-12 05:28:57 +0000
 
 //
 //  Currencies.swift
@@ -160,7 +160,7 @@ class MockCurrencyRates: CurrencyRates, Cuckoo.ClassMock {
 }
 
 
-// MARK: - Mocks generated from file: currency/Modules/CurrencyRates/Protocols/CurrencyRatesModuleProtocols.swift at 2019-03-10 08:42:41 +0000
+// MARK: - Mocks generated from file: currency/Modules/CurrencyRates/Protocols/CurrencyRatesModuleProtocols.swift at 2019-03-12 05:28:57 +0000
 
 //
 //  CurrencyModuleProtocols.swift
@@ -423,47 +423,11 @@ class MockCurrencyRatesIntercatorInputProtocol: CurrencyRatesIntercatorInputProt
     
 
     
-    // ["name": "select", "returnSignature": "", "fullyQualifiedName": "select(currency: String)", "parameterSignature": "currency: String", "parameterSignatureWithoutNames": "currency: String", "inputTypes": "String", "isThrowing": false, "isInit": false, "isOverriding": false, "hasClosureParams": false, "@type": "ProtocolMethod", "accessibility": "", "parameterNames": "currency", "call": "currency: currency", "parameters": [CuckooGeneratorFramework.MethodParameter(label: Optional("currency"), name: "currency", type: "String", range: CountableRange(494..<510), nameRange: CountableRange(494..<502))], "returnType": "Void", "isOptional": false, "stubFunction": "Cuckoo.ProtocolStubNoReturnFunction"]
-     func select(currency: String)  {
+    // ["name": "retrieveRates", "returnSignature": "", "fullyQualifiedName": "retrieveRates(currency: String, amount: NSDecimalNumber)", "parameterSignature": "currency: String, amount: NSDecimalNumber", "parameterSignatureWithoutNames": "currency: String, amount: NSDecimalNumber", "inputTypes": "String, NSDecimalNumber", "isThrowing": false, "isInit": false, "isOverriding": false, "hasClosureParams": false, "@type": "ProtocolMethod", "accessibility": "", "parameterNames": "currency, amount", "call": "currency: currency, amount: amount", "parameters": [CuckooGeneratorFramework.MethodParameter(label: Optional("currency"), name: "currency", type: "String", range: CountableRange(501..<517), nameRange: CountableRange(501..<509)), CuckooGeneratorFramework.MethodParameter(label: Optional("amount"), name: "amount", type: "NSDecimalNumber", range: CountableRange(519..<542), nameRange: CountableRange(519..<525))], "returnType": "Void", "isOptional": false, "stubFunction": "Cuckoo.ProtocolStubNoReturnFunction"]
+     func retrieveRates(currency: String, amount: NSDecimalNumber)  {
         
-            return cuckoo_manager.call("select(currency: String)",
-                parameters: (currency),
-                superclassCall:
-                    
-                    Cuckoo.MockManager.crashOnProtocolSuperclassCall()
-                    )
-        
-    }
-    
-    // ["name": "change", "returnSignature": "", "fullyQualifiedName": "change(amount: String)", "parameterSignature": "amount: String", "parameterSignatureWithoutNames": "amount: String", "inputTypes": "String", "isThrowing": false, "isInit": false, "isOverriding": false, "hasClosureParams": false, "@type": "ProtocolMethod", "accessibility": "", "parameterNames": "amount", "call": "amount: amount", "parameters": [CuckooGeneratorFramework.MethodParameter(label: Optional("amount"), name: "amount", type: "String", range: CountableRange(528..<542), nameRange: CountableRange(528..<534))], "returnType": "Void", "isOptional": false, "stubFunction": "Cuckoo.ProtocolStubNoReturnFunction"]
-     func change(amount: String)  {
-        
-            return cuckoo_manager.call("change(amount: String)",
-                parameters: (amount),
-                superclassCall:
-                    
-                    Cuckoo.MockManager.crashOnProtocolSuperclassCall()
-                    )
-        
-    }
-    
-    // ["name": "retrieveRates", "returnSignature": "", "fullyQualifiedName": "retrieveRates(firstLaunch: Bool)", "parameterSignature": "firstLaunch: Bool", "parameterSignatureWithoutNames": "firstLaunch: Bool", "inputTypes": "Bool", "isThrowing": false, "isInit": false, "isOverriding": false, "hasClosureParams": false, "@type": "ProtocolMethod", "accessibility": "", "parameterNames": "firstLaunch", "call": "firstLaunch: firstLaunch", "parameters": [CuckooGeneratorFramework.MethodParameter(label: Optional("firstLaunch"), name: "firstLaunch", type: "Bool", range: CountableRange(567..<584), nameRange: CountableRange(567..<578))], "returnType": "Void", "isOptional": false, "stubFunction": "Cuckoo.ProtocolStubNoReturnFunction"]
-     func retrieveRates(firstLaunch: Bool)  {
-        
-            return cuckoo_manager.call("retrieveRates(firstLaunch: Bool)",
-                parameters: (firstLaunch),
-                superclassCall:
-                    
-                    Cuckoo.MockManager.crashOnProtocolSuperclassCall()
-                    )
-        
-    }
-    
-    // ["name": "timer", "returnSignature": "", "fullyQualifiedName": "timer(duration: @escaping (Double) -> ())", "parameterSignature": "duration: @escaping (Double) -> ()", "parameterSignatureWithoutNames": "duration: @escaping (Double) -> ()", "inputTypes": "(Double) -> ()", "isThrowing": false, "isInit": false, "isOverriding": false, "hasClosureParams": true, "@type": "ProtocolMethod", "accessibility": "", "parameterNames": "duration", "call": "duration: duration", "parameters": [CuckooGeneratorFramework.MethodParameter(label: Optional("duration"), name: "duration", type: "@escaping (Double) -> ()", range: CountableRange(601..<635), nameRange: CountableRange(601..<609))], "returnType": "Void", "isOptional": false, "stubFunction": "Cuckoo.ProtocolStubNoReturnFunction"]
-     func timer(duration: @escaping (Double) -> ())  {
-        
-            return cuckoo_manager.call("timer(duration: @escaping (Double) -> ())",
-                parameters: (duration),
+            return cuckoo_manager.call("retrieveRates(currency: String, amount: NSDecimalNumber)",
+                parameters: (currency, amount),
                 superclassCall:
                     
                     Cuckoo.MockManager.crashOnProtocolSuperclassCall()
@@ -480,24 +444,9 @@ class MockCurrencyRatesIntercatorInputProtocol: CurrencyRatesIntercatorInputProt
 	    }
 	    
 	    
-	    func select<M1: Cuckoo.Matchable>(currency: M1) -> Cuckoo.ProtocolStubNoReturnFunction<(String)> where M1.MatchedType == String {
-	        let matchers: [Cuckoo.ParameterMatcher<(String)>] = [wrap(matchable: currency) { $0 }]
-	        return .init(stub: cuckoo_manager.createStub(for: MockCurrencyRatesIntercatorInputProtocol.self, method: "select(currency: String)", parameterMatchers: matchers))
-	    }
-	    
-	    func change<M1: Cuckoo.Matchable>(amount: M1) -> Cuckoo.ProtocolStubNoReturnFunction<(String)> where M1.MatchedType == String {
-	        let matchers: [Cuckoo.ParameterMatcher<(String)>] = [wrap(matchable: amount) { $0 }]
-	        return .init(stub: cuckoo_manager.createStub(for: MockCurrencyRatesIntercatorInputProtocol.self, method: "change(amount: String)", parameterMatchers: matchers))
-	    }
-	    
-	    func retrieveRates<M1: Cuckoo.Matchable>(firstLaunch: M1) -> Cuckoo.ProtocolStubNoReturnFunction<(Bool)> where M1.MatchedType == Bool {
-	        let matchers: [Cuckoo.ParameterMatcher<(Bool)>] = [wrap(matchable: firstLaunch) { $0 }]
-	        return .init(stub: cuckoo_manager.createStub(for: MockCurrencyRatesIntercatorInputProtocol.self, method: "retrieveRates(firstLaunch: Bool)", parameterMatchers: matchers))
-	    }
-	    
-	    func timer<M1: Cuckoo.Matchable>(duration: M1) -> Cuckoo.ProtocolStubNoReturnFunction<((Double) -> ())> where M1.MatchedType == (Double) -> () {
-	        let matchers: [Cuckoo.ParameterMatcher<((Double) -> ())>] = [wrap(matchable: duration) { $0 }]
-	        return .init(stub: cuckoo_manager.createStub(for: MockCurrencyRatesIntercatorInputProtocol.self, method: "timer(duration: @escaping (Double) -> ())", parameterMatchers: matchers))
+	    func retrieveRates<M1: Cuckoo.Matchable, M2: Cuckoo.Matchable>(currency: M1, amount: M2) -> Cuckoo.ProtocolStubNoReturnFunction<(String, NSDecimalNumber)> where M1.MatchedType == String, M2.MatchedType == NSDecimalNumber {
+	        let matchers: [Cuckoo.ParameterMatcher<(String, NSDecimalNumber)>] = [wrap(matchable: currency) { $0.0 }, wrap(matchable: amount) { $0.1 }]
+	        return .init(stub: cuckoo_manager.createStub(for: MockCurrencyRatesIntercatorInputProtocol.self, method: "retrieveRates(currency: String, amount: NSDecimalNumber)", parameterMatchers: matchers))
 	    }
 	    
 	}
@@ -517,27 +466,9 @@ class MockCurrencyRatesIntercatorInputProtocol: CurrencyRatesIntercatorInputProt
 	
 	    
 	    @discardableResult
-	    func select<M1: Cuckoo.Matchable>(currency: M1) -> Cuckoo.__DoNotUse<Void> where M1.MatchedType == String {
-	        let matchers: [Cuckoo.ParameterMatcher<(String)>] = [wrap(matchable: currency) { $0 }]
-	        return cuckoo_manager.verify("select(currency: String)", callMatcher: callMatcher, parameterMatchers: matchers, sourceLocation: sourceLocation)
-	    }
-	    
-	    @discardableResult
-	    func change<M1: Cuckoo.Matchable>(amount: M1) -> Cuckoo.__DoNotUse<Void> where M1.MatchedType == String {
-	        let matchers: [Cuckoo.ParameterMatcher<(String)>] = [wrap(matchable: amount) { $0 }]
-	        return cuckoo_manager.verify("change(amount: String)", callMatcher: callMatcher, parameterMatchers: matchers, sourceLocation: sourceLocation)
-	    }
-	    
-	    @discardableResult
-	    func retrieveRates<M1: Cuckoo.Matchable>(firstLaunch: M1) -> Cuckoo.__DoNotUse<Void> where M1.MatchedType == Bool {
-	        let matchers: [Cuckoo.ParameterMatcher<(Bool)>] = [wrap(matchable: firstLaunch) { $0 }]
-	        return cuckoo_manager.verify("retrieveRates(firstLaunch: Bool)", callMatcher: callMatcher, parameterMatchers: matchers, sourceLocation: sourceLocation)
-	    }
-	    
-	    @discardableResult
-	    func timer<M1: Cuckoo.Matchable>(duration: M1) -> Cuckoo.__DoNotUse<Void> where M1.MatchedType == (Double) -> () {
-	        let matchers: [Cuckoo.ParameterMatcher<((Double) -> ())>] = [wrap(matchable: duration) { $0 }]
-	        return cuckoo_manager.verify("timer(duration: @escaping (Double) -> ())", callMatcher: callMatcher, parameterMatchers: matchers, sourceLocation: sourceLocation)
+	    func retrieveRates<M1: Cuckoo.Matchable, M2: Cuckoo.Matchable>(currency: M1, amount: M2) -> Cuckoo.__DoNotUse<Void> where M1.MatchedType == String, M2.MatchedType == NSDecimalNumber {
+	        let matchers: [Cuckoo.ParameterMatcher<(String, NSDecimalNumber)>] = [wrap(matchable: currency) { $0.0 }, wrap(matchable: amount) { $0.1 }]
+	        return cuckoo_manager.verify("retrieveRates(currency: String, amount: NSDecimalNumber)", callMatcher: callMatcher, parameterMatchers: matchers, sourceLocation: sourceLocation)
 	    }
 	    
 	}
@@ -550,19 +481,7 @@ class MockCurrencyRatesIntercatorInputProtocol: CurrencyRatesIntercatorInputProt
     
 
     
-     func select(currency: String)  {
-        return DefaultValueRegistry.defaultValue(for: Void.self)
-    }
-    
-     func change(amount: String)  {
-        return DefaultValueRegistry.defaultValue(for: Void.self)
-    }
-    
-     func retrieveRates(firstLaunch: Bool)  {
-        return DefaultValueRegistry.defaultValue(for: Void.self)
-    }
-    
-     func timer(duration: @escaping (Double) -> ())  {
+     func retrieveRates(currency: String, amount: NSDecimalNumber)  {
         return DefaultValueRegistry.defaultValue(for: Void.self)
     }
     
@@ -580,7 +499,7 @@ class MockCurrencyRatesIntercatorOutputProtocol: CurrencyRatesIntercatorOutputPr
     
 
     
-    // ["name": "onError", "returnSignature": "", "fullyQualifiedName": "onError(reason: String)", "parameterSignature": "reason: String", "parameterSignatureWithoutNames": "reason: String", "inputTypes": "String", "isThrowing": false, "isInit": false, "isOverriding": false, "hasClosureParams": false, "@type": "ProtocolMethod", "accessibility": "", "parameterNames": "reason", "call": "reason: reason", "parameters": [CuckooGeneratorFramework.MethodParameter(label: Optional("reason"), name: "reason", type: "String", range: CountableRange(713..<727), nameRange: CountableRange(713..<719))], "returnType": "Void", "isOptional": false, "stubFunction": "Cuckoo.ProtocolStubNoReturnFunction"]
+    // ["name": "onError", "returnSignature": "", "fullyQualifiedName": "onError(reason: String)", "parameterSignature": "reason: String", "parameterSignatureWithoutNames": "reason: String", "inputTypes": "String", "isThrowing": false, "isInit": false, "isOverriding": false, "hasClosureParams": false, "@type": "ProtocolMethod", "accessibility": "", "parameterNames": "reason", "call": "reason: reason", "parameters": [CuckooGeneratorFramework.MethodParameter(label: Optional("reason"), name: "reason", type: "String", range: CountableRange(620..<634), nameRange: CountableRange(620..<626))], "returnType": "Void", "isOptional": false, "stubFunction": "Cuckoo.ProtocolStubNoReturnFunction"]
      func onError(reason: String)  {
         
             return cuckoo_manager.call("onError(reason: String)",
@@ -604,22 +523,10 @@ class MockCurrencyRatesIntercatorOutputProtocol: CurrencyRatesIntercatorOutputPr
         
     }
     
-    // ["name": "onRetrieve", "returnSignature": "", "fullyQualifiedName": "onRetrieve(rates: [(name: String, rate: NSDecimalNumber)])", "parameterSignature": "rates: [(name: String, rate: NSDecimalNumber)]", "parameterSignatureWithoutNames": "rates: [(name: String, rate: NSDecimalNumber)]", "inputTypes": "[(name: String, rate: NSDecimalNumber)]", "isThrowing": false, "isInit": false, "isOverriding": false, "hasClosureParams": false, "@type": "ProtocolMethod", "accessibility": "", "parameterNames": "rates", "call": "rates: rates", "parameters": [CuckooGeneratorFramework.MethodParameter(label: Optional("rates"), name: "rates", type: "[(name: String, rate: NSDecimalNumber)]", range: CountableRange(775..<821), nameRange: CountableRange(775..<780))], "returnType": "Void", "isOptional": false, "stubFunction": "Cuckoo.ProtocolStubNoReturnFunction"]
+    // ["name": "onRetrieve", "returnSignature": "", "fullyQualifiedName": "onRetrieve(rates: [(name: String, rate: NSDecimalNumber)])", "parameterSignature": "rates: [(name: String, rate: NSDecimalNumber)]", "parameterSignatureWithoutNames": "rates: [(name: String, rate: NSDecimalNumber)]", "inputTypes": "[(name: String, rate: NSDecimalNumber)]", "isThrowing": false, "isInit": false, "isOverriding": false, "hasClosureParams": false, "@type": "ProtocolMethod", "accessibility": "", "parameterNames": "rates", "call": "rates: rates", "parameters": [CuckooGeneratorFramework.MethodParameter(label: Optional("rates"), name: "rates", type: "[(name: String, rate: NSDecimalNumber)]", range: CountableRange(682..<728), nameRange: CountableRange(682..<687))], "returnType": "Void", "isOptional": false, "stubFunction": "Cuckoo.ProtocolStubNoReturnFunction"]
      func onRetrieve(rates: [(name: String, rate: NSDecimalNumber)])  {
         
             return cuckoo_manager.call("onRetrieve(rates: [(name: String, rate: NSDecimalNumber)])",
-                parameters: (rates),
-                superclassCall:
-                    
-                    Cuckoo.MockManager.crashOnProtocolSuperclassCall()
-                    )
-        
-    }
-    
-    // ["name": "onUpdate", "returnSignature": "", "fullyQualifiedName": "onUpdate(rates: [(name: String, rate: NSDecimalNumber)])", "parameterSignature": "rates: [(name: String, rate: NSDecimalNumber)]", "parameterSignatureWithoutNames": "rates: [(name: String, rate: NSDecimalNumber)]", "inputTypes": "[(name: String, rate: NSDecimalNumber)]", "isThrowing": false, "isInit": false, "isOverriding": false, "hasClosureParams": false, "@type": "ProtocolMethod", "accessibility": "", "parameterNames": "rates", "call": "rates: rates", "parameters": [CuckooGeneratorFramework.MethodParameter(label: Optional("rates"), name: "rates", type: "[(name: String, rate: NSDecimalNumber)]", range: CountableRange(841..<887), nameRange: CountableRange(841..<846))], "returnType": "Void", "isOptional": false, "stubFunction": "Cuckoo.ProtocolStubNoReturnFunction"]
-     func onUpdate(rates: [(name: String, rate: NSDecimalNumber)])  {
-        
-            return cuckoo_manager.call("onUpdate(rates: [(name: String, rate: NSDecimalNumber)])",
                 parameters: (rates),
                 superclassCall:
                     
@@ -650,11 +557,6 @@ class MockCurrencyRatesIntercatorOutputProtocol: CurrencyRatesIntercatorOutputPr
 	    func onRetrieve<M1: Cuckoo.Matchable>(rates: M1) -> Cuckoo.ProtocolStubNoReturnFunction<([(name: String, rate: NSDecimalNumber)])> where M1.MatchedType == [(name: String, rate: NSDecimalNumber)] {
 	        let matchers: [Cuckoo.ParameterMatcher<([(name: String, rate: NSDecimalNumber)])>] = [wrap(matchable: rates) { $0 }]
 	        return .init(stub: cuckoo_manager.createStub(for: MockCurrencyRatesIntercatorOutputProtocol.self, method: "onRetrieve(rates: [(name: String, rate: NSDecimalNumber)])", parameterMatchers: matchers))
-	    }
-	    
-	    func onUpdate<M1: Cuckoo.Matchable>(rates: M1) -> Cuckoo.ProtocolStubNoReturnFunction<([(name: String, rate: NSDecimalNumber)])> where M1.MatchedType == [(name: String, rate: NSDecimalNumber)] {
-	        let matchers: [Cuckoo.ParameterMatcher<([(name: String, rate: NSDecimalNumber)])>] = [wrap(matchable: rates) { $0 }]
-	        return .init(stub: cuckoo_manager.createStub(for: MockCurrencyRatesIntercatorOutputProtocol.self, method: "onUpdate(rates: [(name: String, rate: NSDecimalNumber)])", parameterMatchers: matchers))
 	    }
 	    
 	}
@@ -691,12 +593,6 @@ class MockCurrencyRatesIntercatorOutputProtocol: CurrencyRatesIntercatorOutputPr
 	        return cuckoo_manager.verify("onRetrieve(rates: [(name: String, rate: NSDecimalNumber)])", callMatcher: callMatcher, parameterMatchers: matchers, sourceLocation: sourceLocation)
 	    }
 	    
-	    @discardableResult
-	    func onUpdate<M1: Cuckoo.Matchable>(rates: M1) -> Cuckoo.__DoNotUse<Void> where M1.MatchedType == [(name: String, rate: NSDecimalNumber)] {
-	        let matchers: [Cuckoo.ParameterMatcher<([(name: String, rate: NSDecimalNumber)])>] = [wrap(matchable: rates) { $0 }]
-	        return cuckoo_manager.verify("onUpdate(rates: [(name: String, rate: NSDecimalNumber)])", callMatcher: callMatcher, parameterMatchers: matchers, sourceLocation: sourceLocation)
-	    }
-	    
 	}
 
 }
@@ -719,14 +615,10 @@ class MockCurrencyRatesIntercatorOutputProtocol: CurrencyRatesIntercatorOutputPr
         return DefaultValueRegistry.defaultValue(for: Void.self)
     }
     
-     func onUpdate(rates: [(name: String, rate: NSDecimalNumber)])  {
-        return DefaultValueRegistry.defaultValue(for: Void.self)
-    }
-    
 }
 
 
-// MARK: - Mocks generated from file: currency/Modules/CurrencyRates/Protocols/CurrencyRatesViewProtocol.swift at 2019-03-10 08:42:41 +0000
+// MARK: - Mocks generated from file: currency/Modules/CurrencyRates/Protocols/CurrencyRatesViewProtocol.swift at 2019-03-12 05:28:57 +0000
 
 //
 //  CurrencyRatesViewProtocol.swift
@@ -984,7 +876,7 @@ class MockCurrencyRatesViewProtocol: CurrencyRatesViewProtocol, Cuckoo.ProtocolM
 }
 
 
-// MARK: - Mocks generated from file: currency/Services/CurrencyService.swift at 2019-03-10 08:42:41 +0000
+// MARK: - Mocks generated from file: currency/Services/CurrencyService.swift at 2019-03-12 05:28:57 +0000
 
 //
 //  CurrencyService.swift

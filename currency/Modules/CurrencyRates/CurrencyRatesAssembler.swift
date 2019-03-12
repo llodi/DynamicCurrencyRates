@@ -17,8 +17,11 @@ class CurrencyRatesAssembler {
         let interactor = CurrencyRatesIntercator(service: service, parameters: parameters)
         
         let presenter = CurrencyRatesPresenter(view: view, interactor: interactor)
-        
         interactor.output = presenter
+        
+        presenter.currentCurrency = parameters.currentCurrency
+        presenter.amount = parameters.amount
+        presenter.launchDuration = parameters.launchDuration
         
         view.presenter = presenter
     }

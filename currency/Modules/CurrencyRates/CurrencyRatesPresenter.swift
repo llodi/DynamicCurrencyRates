@@ -14,7 +14,11 @@ class CurrencyRatesPresenter: CurrencyRatesPresenterProtocol, CurrencyRatesInter
     weak var view: CurrencyRatesViewProtocol?
     var interactor: CurrencyRatesIntercatorInputProtocol?
     
-    private var isFirstLaunch = true
+    var launchDuration: Double = -1
+    var currentCurrency = ""
+    var amount: NSDecimalNumber = 0
+    
+    var isFirstLaunch = true
     
     init(view: CurrencyRatesViewProtocol, interactor: CurrencyRatesIntercatorInputProtocol) {
         self.view = view
@@ -23,10 +27,12 @@ class CurrencyRatesPresenter: CurrencyRatesPresenterProtocol, CurrencyRatesInter
     
     // MARK: - CurrencyRatesPresenterProtocol
     
-    func viewDidLoad() { }
+    func viewDidLoad() {
+        isFirstLaunch = true
+    }
     
     func viewWillAppear() {
-        interactor?.retrieveRates(firstLaunch: true)
+        interactor?.retrieveRates(currency: currentCurrency, amount: amount)
     }
     
     func viewWillDisappear() {
@@ -34,34 +40,38 @@ class CurrencyRatesPresenter: CurrencyRatesPresenterProtocol, CurrencyRatesInter
     }
     
     func onFullReloadTableFinish() {
-        interactor?.timer(duration: { [weak weakSelf = self] (seconds) in
-            weakSelf?.view?.startTimer(with: seconds)
-        })
+        view?.startTimer(with: launchDuration)
     }
     
     func onInvokeTimer() {
-        interactor?.retrieveRates(firstLaunch: false)
+        interactor?.retrieveRates(currency: currentCurrency, amount: amount)
     }
     
     func onSelect(currency: String) {
-        interactor?.select(currency: currency)
+        currentCurrency = currency
     }
     
     func onChange(amount: String) {
-        interactor?.change(amount: amount)
+        let decimalAmount = NSDecimalNumber(string: amount)
+        self.amount = decimalAmount == NSDecimalNumber.notANumber ? 0 : NSDecimalNumber(string: amount)
     }
-    
     
     // MARK: - CurrencyRatesIntercatorOutputProtocol
     
     func onRetrieve(rates: [(name: String, rate: NSDecimalNumber)]) {
+        var rates = rates
+        if isFirstLaunch {
+            rates.insert((name: currentCurrency, rate: amount), at: 0)
+        }
+        
         let vm = convert(model: rates)
-        view?.show(rates: vm)
-    }
-    
-    func onUpdate(rates: [(name: String, rate: NSDecimalNumber)]) {
-        let vm = convert(model: rates)
-        view?.update(rates: vm)
+        
+        if isFirstLaunch {
+            view?.show(rates: vm)
+            isFirstLaunch = false
+        } else {
+            view?.update(rates: vm)
+        }
     }
     
     func onError(reason: String) {

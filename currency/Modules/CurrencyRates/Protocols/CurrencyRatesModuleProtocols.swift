@@ -24,15 +24,11 @@ protocol CurrencyRatesPresenterProtocol {
 
 
 protocol CurrencyRatesIntercatorInputProtocol {
-    func select(currency: String)
-    func change(amount: String)
-    func retrieveRates(firstLaunch: Bool)
-    func timer(duration: @escaping (Double) -> ())
+    func retrieveRates(currency: String, amount: NSDecimalNumber)
 }
 
 protocol CurrencyRatesIntercatorOutputProtocol: class {
     func onError(reason: String)
     func onUnknownError()
     func onRetrieve(rates: [(name: String, rate: NSDecimalNumber)])
-    func onUpdate(rates: [(name: String, rate: NSDecimalNumber)])    
 }
