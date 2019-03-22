@@ -63,9 +63,10 @@
 		4C29B12522343D6300A718A8 /* CurrencyRates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2304C62226523800998D9A /* CurrencyRates.swift */; };
 		4C29B12922343E4C00A718A8 /* ApiParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C23048122264D5B00998D9A /* ApiParameters.swift */; };
 		4C29B12C22343EAF00A718A8 /* BaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C29B12B22343EAF00A718A8 /* BaseService.swift */; };
-		4C909316222CDEEC00965200 /* GeneratedMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0AF811222BBBC200951FCA /* GeneratedMocks.swift */; };
-		4CAD51432237765800D71CCB /* CurrencyRatesPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0AF81B222BC50000951FCA /* CurrencyRatesPresenterTests.swift */; };
-		4CAD51442237791400D71CCB /* CurrencyRatesInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C29B12F2234442E00A718A8 /* CurrencyRatesInteractorTests.swift */; };
+		4C5D4E8F2245196C001B8BC1 /* GeneratedMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0AF811222BBBC200951FCA /* GeneratedMocks.swift */; };
+		4C5D4E9022451972001B8BC1 /* CurrencyRatesPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0AF81B222BC50000951FCA /* CurrencyRatesPresenterTests.swift */; };
+		4C5D4E9122451974001B8BC1 /* CurrencyRatesInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C29B12F2234442E00A718A8 /* CurrencyRatesInteractorTests.swift */; };
+		4C5D4E92224519F2001B8BC1 /* CurrencyRatesModuleParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAD514522377B3900D71CCB /* CurrencyRatesModuleParameters.swift */; };
 		4CAD514622377B3900D71CCB /* CurrencyRatesModuleParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAD514522377B3900D71CCB /* CurrencyRatesModuleParameters.swift */; };
 		A7CD5B659A7850786D1385CC /* libPods-currencyTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BB2246D26E354F9F857B553 /* libPods-currencyTests.a */; };
 		F02C70CE3BBDF9719D6A9169 /* Pods_currency.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8024E988BC5DFC3E7FBA274C /* Pods_currency.framework */; };
@@ -133,6 +134,7 @@
 		4C29B12322343C8E00A718A8 /* CurrencyRates+Mapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CurrencyRates+Mapping.swift"; sourceTree = "<group>"; };
 		4C29B12B22343EAF00A718A8 /* BaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseService.swift; sourceTree = "<group>"; };
 		4C29B12F2234442E00A718A8 /* CurrencyRatesInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyRatesInteractorTests.swift; sourceTree = "<group>"; };
+		4C5D4E9322451AE4001B8BC1 /* ApiRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiRequest.swift; sourceTree = "<group>"; };
 		4CAD514522377B3900D71CCB /* CurrencyRatesModuleParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyRatesModuleParameters.swift; sourceTree = "<group>"; };
 		62B0EE51C88066A61269144E /* Pods-currencyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-currencyTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-currencyTests/Pods-currencyTests.release.xcconfig"; sourceTree = "<group>"; };
 		8024E988BC5DFC3E7FBA274C /* Pods_currency.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_currency.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -316,6 +318,7 @@
 			children = (
 				4C2304BA22264F8600998D9A /* ApiSource.swift */,
 				4C23048322264D8A00998D9A /* ApiProvider.swift */,
+				4C5D4E9322451AE4001B8BC1 /* ApiRequest.swift */,
 				4C2304C32226514700998D9A /* CurrencyService.swift */,
 				4C135EF32234E65D00BEA1D3 /* HttpMethod.swift */,
 				4C135EF52234E67A00BEA1D3 /* HttpMethodExt.swift */,
@@ -404,11 +407,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4C23047622264B4B00998D9A /* Build configuration list for PBXNativeTarget "currencyTests" */;
 			buildPhases = (
+				4C0AF806222BAA1400951FCA /* ShellScript */,
 				4619087F78027F649D999148 /* [CP] Check Pods Manifest.lock */,
 				4C23046622264B4B00998D9A /* Sources */,
 				4C23046722264B4B00998D9A /* Frameworks */,
 				4C23046822264B4B00998D9A /* Resources */,
-				4C0AF806222BAA1400951FCA /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -605,19 +608,20 @@
 				4C29B12522343D6300A718A8 /* CurrencyRates.swift in Sources */,
 				4C135EF22234E62500BEA1D3 /* Service.swift in Sources */,
 				4C0AF815222BBD9400951FCA /* CurrencyRatesViewProtocol.swift in Sources */,
-				4CAD51432237765800D71CCB /* CurrencyRatesPresenterTests.swift in Sources */,
-				4CAD51442237791400D71CCB /* CurrencyRatesInteractorTests.swift in Sources */,
+				4C5D4E9022451972001B8BC1 /* CurrencyRatesPresenterTests.swift in Sources */,
+				4C5D4E9122451974001B8BC1 /* CurrencyRatesInteractorTests.swift in Sources */,
 				4C29B12922343E4C00A718A8 /* ApiParameters.swift in Sources */,
+				4C5D4E8F2245196C001B8BC1 /* GeneratedMocks.swift in Sources */,
 				4C0AF808222BAAF700951FCA /* RatesViewModel.swift in Sources */,
 				4C135EFB2234EABD00BEA1D3 /* CurrencyService.swift in Sources */,
 				4C0AF809222BB2C200951FCA /* DecimalFormatterUtils.swift in Sources */,
-				4C909316222CDEEC00965200 /* GeneratedMocks.swift in Sources */,
 				4C0AF81D222BC5A400951FCA /* CurrencyRatesPresenter.swift in Sources */,
 				4C135EF72234E69800BEA1D3 /* HttpMethod.swift in Sources */,
 				4C135EF82234E6D500BEA1D3 /* ApiSource.swift in Sources */,
 				4C0AF81A222BC37E00951FCA /* ApiError.swift in Sources */,
 				4C135EFC2234EC2B00BEA1D3 /* CurrencyRatesIntercator.swift in Sources */,
 				4C0AF814222BBD9400951FCA /* CurrencyRatesModuleProtocols.swift in Sources */,
+				4C5D4E92224519F2001B8BC1 /* CurrencyRatesModuleParameters.swift in Sources */,
 				4C135EF12234E57F00BEA1D3 /* Mocks.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
