@@ -1,4 +1,4 @@
-// MARK: - Mocks generated from file: currency/Entities/CurrencyRates.swift at 2019-03-22 13:26:45 +0000
+// MARK: - Mocks generated from file: currency/Entities/CurrencyRates.swift at 2019-03-23 10:19:51 +0000
 
 //
 //  Currencies.swift
@@ -51,17 +51,17 @@ class MockCurrencyRates: CurrencyRates, Cuckoo.ClassMock {
         
     }
     
-    // ["name": "rates", "stubType": "ClassToBeStubbedProperty", "@type": "InstanceVariable", "type": "[(name: String, rate: NSDecimalNumber)]", "isReadOnly": false, "accessibility": ""]
-     override var rates: [(name: String, rate: NSDecimalNumber)] {
+    // ["name": "decimalRates", "stubType": "ClassToBeStubbedProperty", "@type": "InstanceVariable", "type": "[(name: String, rate: NSDecimalNumber)]", "isReadOnly": false, "accessibility": ""]
+     override var decimalRates: [(name: String, rate: NSDecimalNumber)] {
         get {
             
-            return cuckoo_manager.getter("rates", superclassCall: super.rates)
+            return cuckoo_manager.getter("decimalRates", superclassCall: super.decimalRates)
             
         }
         
         set {
             
-            cuckoo_manager.setter("rates", value: newValue, superclassCall: super.rates = newValue)
+            cuckoo_manager.setter("decimalRates", value: newValue, superclassCall: super.decimalRates = newValue)
             
         }
         
@@ -70,6 +70,18 @@ class MockCurrencyRates: CurrencyRates, Cuckoo.ClassMock {
 
     
 
+    
+    // ["name": "encode", "returnSignature": " throws", "fullyQualifiedName": "encode(to: Encoder) throws", "parameterSignature": "to encoder: Encoder", "parameterSignatureWithoutNames": "encoder: Encoder", "inputTypes": "Encoder", "isThrowing": true, "isInit": false, "isOverriding": true, "hasClosureParams": false, "@type": "ClassMethod", "accessibility": "public", "parameterNames": "encoder", "call": "to: encoder", "parameters": [CuckooGeneratorFramework.MethodParameter(label: Optional("to"), name: "encoder", type: "Encoder", range: CountableRange(961..<980), nameRange: CountableRange(961..<963))], "returnType": "Void", "isOptional": false, "stubFunction": "Cuckoo.ClassStubNoReturnThrowingFunction"]
+    public override func encode(to encoder: Encoder)  throws {
+        
+            return try cuckoo_manager.callThrows("encode(to: Encoder) throws",
+                parameters: (encoder),
+                superclassCall:
+                    
+                    super.encode(to: encoder)
+                    )
+        
+    }
     
 
 	struct __StubbingProxy_CurrencyRates: Cuckoo.StubbingProxy {
@@ -87,10 +99,15 @@ class MockCurrencyRates: CurrencyRates, Cuckoo.ClassMock {
 	        return .init(manager: cuckoo_manager, name: "date")
 	    }
 	    
-	    var rates: Cuckoo.ClassToBeStubbedProperty<MockCurrencyRates, [(name: String, rate: NSDecimalNumber)]> {
-	        return .init(manager: cuckoo_manager, name: "rates")
+	    var decimalRates: Cuckoo.ClassToBeStubbedProperty<MockCurrencyRates, [(name: String, rate: NSDecimalNumber)]> {
+	        return .init(manager: cuckoo_manager, name: "decimalRates")
 	    }
 	    
+	    
+	    func encode<M1: Cuckoo.Matchable>(to encoder: M1) -> Cuckoo.ClassStubNoReturnThrowingFunction<(Encoder)> where M1.MatchedType == Encoder {
+	        let matchers: [Cuckoo.ParameterMatcher<(Encoder)>] = [wrap(matchable: encoder) { $0 }]
+	        return .init(stub: cuckoo_manager.createStub(for: MockCurrencyRates.self, method: "encode(to: Encoder) throws", parameterMatchers: matchers))
+	    }
 	    
 	}
 
@@ -114,11 +131,17 @@ class MockCurrencyRates: CurrencyRates, Cuckoo.ClassMock {
 	        return .init(manager: cuckoo_manager, name: "date", callMatcher: callMatcher, sourceLocation: sourceLocation)
 	    }
 	    
-	    var rates: Cuckoo.VerifyProperty<[(name: String, rate: NSDecimalNumber)]> {
-	        return .init(manager: cuckoo_manager, name: "rates", callMatcher: callMatcher, sourceLocation: sourceLocation)
+	    var decimalRates: Cuckoo.VerifyProperty<[(name: String, rate: NSDecimalNumber)]> {
+	        return .init(manager: cuckoo_manager, name: "decimalRates", callMatcher: callMatcher, sourceLocation: sourceLocation)
 	    }
 	    
 	
+	    
+	    @discardableResult
+	    func encode<M1: Cuckoo.Matchable>(to encoder: M1) -> Cuckoo.__DoNotUse<Void> where M1.MatchedType == Encoder {
+	        let matchers: [Cuckoo.ParameterMatcher<(Encoder)>] = [wrap(matchable: encoder) { $0 }]
+	        return cuckoo_manager.verify("encode(to: Encoder) throws", callMatcher: callMatcher, parameterMatchers: matchers, sourceLocation: sourceLocation)
+	    }
 	    
 	}
 
@@ -144,7 +167,7 @@ class MockCurrencyRates: CurrencyRates, Cuckoo.ClassMock {
         
     }
     
-     override var rates: [(name: String, rate: NSDecimalNumber)] {
+     override var decimalRates: [(name: String, rate: NSDecimalNumber)] {
         get {
             return DefaultValueRegistry.defaultValue(for: ([(name: String, rate: NSDecimalNumber)]).self)
         }
@@ -157,10 +180,14 @@ class MockCurrencyRates: CurrencyRates, Cuckoo.ClassMock {
     
 
     
+    public override func encode(to encoder: Encoder)  throws {
+        return DefaultValueRegistry.defaultValue(for: Void.self)
+    }
+    
 }
 
 
-// MARK: - Mocks generated from file: currency/Modules/CurrencyRates/Protocols/CurrencyRatesModuleProtocols.swift at 2019-03-22 13:26:45 +0000
+// MARK: - Mocks generated from file: currency/Modules/CurrencyRates/Protocols/CurrencyRatesModuleProtocols.swift at 2019-03-23 10:19:51 +0000
 
 //
 //  CurrencyModuleProtocols.swift
@@ -618,7 +645,7 @@ class MockCurrencyRatesIntercatorOutputProtocol: CurrencyRatesIntercatorOutputPr
 }
 
 
-// MARK: - Mocks generated from file: currency/Modules/CurrencyRates/Protocols/CurrencyRatesViewProtocol.swift at 2019-03-22 13:26:45 +0000
+// MARK: - Mocks generated from file: currency/Modules/CurrencyRates/Protocols/CurrencyRatesViewProtocol.swift at 2019-03-23 10:19:51 +0000
 
 //
 //  CurrencyRatesViewProtocol.swift
@@ -876,7 +903,7 @@ class MockCurrencyRatesViewProtocol: CurrencyRatesViewProtocol, Cuckoo.ProtocolM
 }
 
 
-// MARK: - Mocks generated from file: currency/Services/CurrencyService.swift at 2019-03-22 13:26:45 +0000
+// MARK: - Mocks generated from file: currency/Services/CurrencyService.swift at 2019-03-23 10:19:51 +0000
 
 //
 //  CurrencyService.swift

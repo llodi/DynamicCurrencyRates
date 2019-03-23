@@ -14,6 +14,11 @@
 		4C0AF815222BBD9400951FCA /* CurrencyRatesViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0AF80F222BBA3100951FCA /* CurrencyRatesViewProtocol.swift */; };
 		4C0AF81A222BC37E00951FCA /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C23048522264DFD00998D9A /* ApiError.swift */; };
 		4C0AF81D222BC5A400951FCA /* CurrencyRatesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C12DE68222A943D009C201C /* CurrencyRatesPresenter.swift */; };
+		4C0D4E442246170000DF21FD /* ApiRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5D4E9322451AE4001B8BC1 /* ApiRequest.swift */; };
+		4C0D4E4522463D6400DF21FD /* Convertable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C23047F22264D3D00998D9A /* Convertable.swift */; };
+		4C0D4E4722463E8300DF21FD /* CurrencyRates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2304C62226523800998D9A /* CurrencyRates.swift */; };
+		4C0D4E4822463F0400DF21FD /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C23047A22264BC300998D9A /* Service.swift */; };
+		4C0D4E4922463FB900DF21FD /* CurrencyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2304C32226514700998D9A /* CurrencyService.swift */; };
 		4C12DE61222A8B72009C201C /* CurrencyRateItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C12DE60222A8B72009C201C /* CurrencyRateItemCell.swift */; };
 		4C12DE63222A8BA0009C201C /* CurrencyRateItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C12DE62222A8BA0009C201C /* CurrencyRateItemCell.xib */; };
 		4C12DE65222A8C31009C201C /* CurrencyRatesIntercator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C12DE64222A8C31009C201C /* CurrencyRatesIntercator.swift */; };
@@ -24,12 +29,9 @@
 		4C12DE77222ACE38009C201C /* CurrencyRatesAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C12DE76222ACE38009C201C /* CurrencyRatesAdapter.swift */; };
 		4C12DE79222AD6FE009C201C /* RatesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C12DE78222AD6FE009C201C /* RatesViewModel.swift */; };
 		4C135EF12234E57F00BEA1D3 /* Mocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C135EF02234E57F00BEA1D3 /* Mocks.swift */; };
-		4C135EF22234E62500BEA1D3 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C23047A22264BC300998D9A /* Service.swift */; };
 		4C135EF42234E65D00BEA1D3 /* HttpMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C135EF32234E65D00BEA1D3 /* HttpMethod.swift */; };
-		4C135EF62234E67A00BEA1D3 /* HttpMethodExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C135EF52234E67A00BEA1D3 /* HttpMethodExt.swift */; };
 		4C135EF72234E69800BEA1D3 /* HttpMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C135EF32234E65D00BEA1D3 /* HttpMethod.swift */; };
 		4C135EF82234E6D500BEA1D3 /* ApiSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2304BA22264F8600998D9A /* ApiSource.swift */; };
-		4C135EFB2234EABD00BEA1D3 /* CurrencyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2304C32226514700998D9A /* CurrencyService.swift */; };
 		4C135EFC2234EC2B00BEA1D3 /* CurrencyRatesIntercator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C12DE64222A8C31009C201C /* CurrencyRatesIntercator.swift */; };
 		4C23045A22264B4900998D9A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C23045922264B4900998D9A /* AppDelegate.swift */; };
 		4C23045F22264B4900998D9A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C23045D22264B4900998D9A /* Main.storyboard */; };
@@ -59,8 +61,6 @@
 		4C2304C72226523800998D9A /* CurrencyRates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2304C62226523800998D9A /* CurrencyRates.swift */; };
 		4C268B8C2226E26200F70326 /* CurrencyRatesModuleProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C268B8B2226E26200F70326 /* CurrencyRatesModuleProtocols.swift */; };
 		4C268B8F2226E28F00F70326 /* CurrencyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C268B8E2226E28F00F70326 /* CurrencyCell.swift */; };
-		4C29B12422343C8E00A718A8 /* CurrencyRates+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C29B12322343C8E00A718A8 /* CurrencyRates+Mapping.swift */; };
-		4C29B12522343D6300A718A8 /* CurrencyRates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2304C62226523800998D9A /* CurrencyRates.swift */; };
 		4C29B12922343E4C00A718A8 /* ApiParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C23048122264D5B00998D9A /* ApiParameters.swift */; };
 		4C29B12C22343EAF00A718A8 /* BaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C29B12B22343EAF00A718A8 /* BaseService.swift */; };
 		4C5D4E8F2245196C001B8BC1 /* GeneratedMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0AF811222BBBC200951FCA /* GeneratedMocks.swift */; };
@@ -85,7 +85,6 @@
 /* Begin PBXFileReference section */
 		4C0AF80F222BBA3100951FCA /* CurrencyRatesViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyRatesViewProtocol.swift; sourceTree = "<group>"; };
 		4C0AF811222BBBC200951FCA /* GeneratedMocks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneratedMocks.swift; sourceTree = "<group>"; };
-		4C0AF818222BC20800951FCA /* Rates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rates.swift; sourceTree = "<group>"; };
 		4C0AF81B222BC50000951FCA /* CurrencyRatesPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyRatesPresenterTests.swift; sourceTree = "<group>"; };
 		4C12DE60222A8B72009C201C /* CurrencyRateItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyRateItemCell.swift; sourceTree = "<group>"; };
 		4C12DE62222A8BA0009C201C /* CurrencyRateItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CurrencyRateItemCell.xib; sourceTree = "<group>"; };
@@ -98,7 +97,6 @@
 		4C12DE78222AD6FE009C201C /* RatesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatesViewModel.swift; sourceTree = "<group>"; };
 		4C135EF02234E57F00BEA1D3 /* Mocks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mocks.swift; sourceTree = "<group>"; };
 		4C135EF32234E65D00BEA1D3 /* HttpMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpMethod.swift; sourceTree = "<group>"; };
-		4C135EF52234E67A00BEA1D3 /* HttpMethodExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpMethodExt.swift; sourceTree = "<group>"; };
 		4C23045622264B4900998D9A /* currency.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = currency.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C23045922264B4900998D9A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4C23045E22264B4900998D9A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -131,7 +129,6 @@
 		4C2304C62226523800998D9A /* CurrencyRates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyRates.swift; sourceTree = "<group>"; };
 		4C268B8B2226E26200F70326 /* CurrencyRatesModuleProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyRatesModuleProtocols.swift; sourceTree = "<group>"; };
 		4C268B8E2226E28F00F70326 /* CurrencyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyCell.swift; sourceTree = "<group>"; };
-		4C29B12322343C8E00A718A8 /* CurrencyRates+Mapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CurrencyRates+Mapping.swift"; sourceTree = "<group>"; };
 		4C29B12B22343EAF00A718A8 /* BaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseService.swift; sourceTree = "<group>"; };
 		4C29B12F2234442E00A718A8 /* CurrencyRatesInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyRatesInteractorTests.swift; sourceTree = "<group>"; };
 		4C5D4E9322451AE4001B8BC1 /* ApiRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiRequest.swift; sourceTree = "<group>"; };
@@ -217,7 +214,6 @@
 				4C0AF81B222BC50000951FCA /* CurrencyRatesPresenterTests.swift */,
 				4C29B12F2234442E00A718A8 /* CurrencyRatesInteractorTests.swift */,
 				4C23047022264B4B00998D9A /* Info.plist */,
-				4C0AF818222BC20800951FCA /* Rates.swift */,
 				4C135EF02234E57F00BEA1D3 /* Mocks.swift */,
 			);
 			path = currencyTests;
@@ -321,7 +317,6 @@
 				4C5D4E9322451AE4001B8BC1 /* ApiRequest.swift */,
 				4C2304C32226514700998D9A /* CurrencyService.swift */,
 				4C135EF32234E65D00BEA1D3 /* HttpMethod.swift */,
-				4C135EF52234E67A00BEA1D3 /* HttpMethodExt.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -330,7 +325,6 @@
 			isa = PBXGroup;
 			children = (
 				4C2304C62226523800998D9A /* CurrencyRates.swift */,
-				4C29B12322343C8E00A718A8 /* CurrencyRates+Mapping.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -392,7 +386,6 @@
 				4C23045222264B4900998D9A /* Sources */,
 				4C23045322264B4900998D9A /* Frameworks */,
 				4C23045422264B4900998D9A /* Resources */,
-				DCED20DF930EF77AC26B0F67 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -532,26 +525,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		DCED20DF930EF77AC26B0F67 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-currency/Pods-currency-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/HandyJSON/HandyJSON.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HandyJSON.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-currency/Pods-currency-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -588,15 +561,14 @@
 				4C2304C72226523800998D9A /* CurrencyRates.swift in Sources */,
 				4C2304AA22264E8A00998D9A /* NSObject.swift in Sources */,
 				4C2304C42226514700998D9A /* CurrencyService.swift in Sources */,
-				4C29B12422343C8E00A718A8 /* CurrencyRates+Mapping.swift in Sources */,
 				4C23047B22264BC300998D9A /* Service.swift in Sources */,
 				4CAD514622377B3900D71CCB /* CurrencyRatesModuleParameters.swift in Sources */,
 				4C12DE69222A943D009C201C /* CurrencyRatesPresenter.swift in Sources */,
-				4C135EF62234E67A00BEA1D3 /* HttpMethodExt.swift in Sources */,
 				4C135EF42234E65D00BEA1D3 /* HttpMethod.swift in Sources */,
 				4C23049522264E5100998D9A /* URLUtils.swift in Sources */,
 				4C2304AE22264E8A00998D9A /* UIViewController.swift in Sources */,
 				4C12DE65222A8C31009C201C /* CurrencyRatesIntercator.swift in Sources */,
+				4C0D4E442246170000DF21FD /* ApiRequest.swift in Sources */,
 				4C12DE61222A8B72009C201C /* CurrencyRateItemCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -605,20 +577,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4C29B12522343D6300A718A8 /* CurrencyRates.swift in Sources */,
-				4C135EF22234E62500BEA1D3 /* Service.swift in Sources */,
 				4C0AF815222BBD9400951FCA /* CurrencyRatesViewProtocol.swift in Sources */,
+				4C0D4E4722463E8300DF21FD /* CurrencyRates.swift in Sources */,
 				4C5D4E9022451972001B8BC1 /* CurrencyRatesPresenterTests.swift in Sources */,
 				4C5D4E9122451974001B8BC1 /* CurrencyRatesInteractorTests.swift in Sources */,
 				4C29B12922343E4C00A718A8 /* ApiParameters.swift in Sources */,
+				4C0D4E4822463F0400DF21FD /* Service.swift in Sources */,
 				4C5D4E8F2245196C001B8BC1 /* GeneratedMocks.swift in Sources */,
 				4C0AF808222BAAF700951FCA /* RatesViewModel.swift in Sources */,
-				4C135EFB2234EABD00BEA1D3 /* CurrencyService.swift in Sources */,
 				4C0AF809222BB2C200951FCA /* DecimalFormatterUtils.swift in Sources */,
 				4C0AF81D222BC5A400951FCA /* CurrencyRatesPresenter.swift in Sources */,
+				4C0D4E4922463FB900DF21FD /* CurrencyService.swift in Sources */,
 				4C135EF72234E69800BEA1D3 /* HttpMethod.swift in Sources */,
 				4C135EF82234E6D500BEA1D3 /* ApiSource.swift in Sources */,
 				4C0AF81A222BC37E00951FCA /* ApiError.swift in Sources */,
+				4C0D4E4522463D6400DF21FD /* Convertable.swift in Sources */,
 				4C135EFC2234EC2B00BEA1D3 /* CurrencyRatesIntercator.swift in Sources */,
 				4C0AF814222BBD9400951FCA /* CurrencyRatesModuleProtocols.swift in Sources */,
 				4C5D4E92224519F2001B8BC1 /* CurrencyRatesModuleParameters.swift in Sources */,

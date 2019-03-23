@@ -8,8 +8,8 @@ target 'currency' do
 
   # Pods for Yammi
 
-pod 'HandyJSON'
-pod 'Alamofire'
+#pod 'HandyJSON'
+#pod 'Alamofire'
 
 
 end

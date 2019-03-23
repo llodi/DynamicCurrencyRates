@@ -17,10 +17,10 @@ protocol Service {
                                     paramters: ApiParametersProtocol?,
                                     completion: @escaping (M?, ApiErrorProtocol?) -> ())
     
-    func request<M: ApiConvertable>(path: ApiSource,
-                                    method: HttpMethod,
-                                    paramters: ApiParametersProtocol?,
-                                    completion: @escaping ([M], ApiErrorProtocol?) -> ())
+//    func request<M: ApiConvertable>(path: ApiSource,
+//                                    method: HttpMethod,
+//                                    paramters: ApiParametersProtocol?,
+//                                    completion: @escaping ([M], ApiErrorProtocol?) -> ())
 }
 
 

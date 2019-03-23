@@ -41,7 +41,7 @@ class CurrencyRatesIntercator: CurrencyRatesIntercatorInputProtocol {
     // MARK: - Private Methods
     
     private func handleSuccessResponse(rates: CurrencyRates, amount: NSDecimalNumber) {
-        let rateItems = rates.rates.map{ (name: $0.name, rate: $0.rate.multiplying(by: amount)) }
+        let rateItems = rates.decimalRates.map{ (name: $0.name, rate: $0.rate.multiplying(by: amount)) }
         output?.onRetrieve(rates: rateItems)
     }
 }

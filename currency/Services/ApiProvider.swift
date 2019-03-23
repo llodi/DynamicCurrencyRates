@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import Alamofire
+//import Alamofire
 
 class ApiProvider {
     
@@ -20,10 +20,10 @@ class ApiProvider {
         self.serverUrl = serverUrl
     }
 
-    func request(path: String,
-                 method: HttpMethod = .get,
-                 parameters: ApiParametersProtocol?,
-                 completion: @escaping (Any?, ApiErrorProtocol?) -> ()) {
+    func request<M: ApiConvertable>(path: String,
+                                    method: HttpMethod = .get,
+                                    parameters: ApiParametersProtocol?,
+                                    completion: @escaping (M?, ApiErrorProtocol?) -> ()) {
 
         guard var url = serverUrl else { return }
         
@@ -33,29 +33,45 @@ class ApiProvider {
             path = buildUrl(path: path, components: pathComponent)
         }
 
-        if let args = parameters?.arguments?.toJSON(), !args.isEmpty {
+        if let args = parameters?.arguments?.dictionary, !args.isEmpty {
             url = URLUtils.buildUrl(baseURL: url, arguments: args)
         }
 
         Logger.printd("\n=========================== REQ \(String(describing: path)) START ========================\n")
         
-        Alamofire.request(url.appendingPathComponent(path),
-                          method: method.convert(),
-                          parameters: parameters?.body?.toJSON(),
-                          encoding: JSONEncoding.default,
-                          headers: parameters?.headers ?? [:])
-            .responseJSON { (response) in
-                Logger.printd(response.request)
-                switch response.result {
-                case .success(let value):
-                    Logger.printd(value as? [String:Any])
-                    completion(value, nil)
-                case .failure(let error):
-                    let err = ApiError(failureReason: error.localizedDescription, errorCode: response.response?.statusCode ?? 999)
-                    completion(nil, err)
-                }
-                Logger.printd("\n=========================== REQ \(String(describing: path)) END ========================\n")
+        
+        let request = ApiRequest(url: url.appendingPathComponent(path),
+                                 httpMethod: method,
+                                 headers: parameters?.headers ?? [:])
+        { (data, response, error) in
+            Logger.printd(response)
+            
+            let decoder = JSONDecoder()
+            
+            if let err = error {
+                let apiError = ApiError(failureReason: err.localizedDescription, errorCode: 999)
+                Logger.printd(err)
+                completion(nil, apiError)
+                return
+            }
+            
+            guard let data = data,
+                let responseObject = try? decoder.decode(M.self, from: data) else {
+                    let apiError =
+                        ApiError(failureReason: "Error occured! Please, try again!",
+                                 errorCode: 999)
+                    Logger.printd(apiError)
+                    completion(nil, apiError)
+                return
+            }
+            
+            Logger.printd(responseObject.dictionary)
+            completion(responseObject, nil)
         }
+        
+        request.execute()
+        
+        Logger.printd("\n=========================== REQ \(String(describing: path)) END ========================\n")
         
     }
     private func buildUrl(path: String, components: [String]) -> String {

@@ -26,34 +26,33 @@ class BaseService: Service {
         
         apiProvider.request(path: path.rawValue,
                             method: method,
-                            parameters: paramters) { (value, error) in
-                                if let dict = value as? [String: Any] {
-                                    let obj = M.deserialize(from: dict)
-                                    completion(obj, error)
-                                } else {
-                                    completion(nil, ApiError(failureReason: "Error Occured!", errorCode: 999))
-                                }
-        }
-    }
-    
-    func request<M : ApiConvertable>(path: ApiSource,
-                                     method: HttpMethod,
-                                     paramters: ApiParametersProtocol?,
-                                     completion: @escaping ([M], ApiErrorProtocol?) -> ())    {
-        
-        apiProvider.request(path: path.rawValue,
-                            method: method,
-                            parameters: paramters) { (value, error) in
-                                
-                                if let array = value as? [Any],
-                                    let arrayOptionalElements = [M].deserialize(from: array) {
-                                    
-                                    
-                                    let array = arrayOptionalElements.compactMap{ $0 }
-                                    completion(array.compactMap{ $0 }, error)
-                                } else {
-                                    completion([], ApiError(failureReason: "Error Occured!", errorCode: 999))
-                                }
+                            parameters: paramters)
+        { (obj, error) in
+            DispatchQueue.main.async {
+                completion(obj, error)
+            }
         }
     }
 }
+    
+//    func request<M : ApiConvertable>(path: ApiSource,
+//                                     method: HttpMethod,
+//                                     paramters: ApiParametersProtocol?,
+//                                     completion: @escaping ([M], ApiErrorProtocol?) -> ())    {
+//
+//        apiProvider.request(path: path.rawValue,
+//                            method: method,
+//                            parameters: paramters) { (value, error) in
+//
+////                                if let array = value as? [Any],
+////                                    let arrayOptionalElements = [M].deserialize(from: array) {
+////
+////
+////                                    let array = arrayOptionalElements.compactMap{ $0 }
+////                                    completion(array.compactMap{ $0 }, error)
+////                                } else {
+////                                    completion([], ApiError(failureReason: "Error Occured!", errorCode: 999))
+////                                }
+//        }
+//    }
+//}
