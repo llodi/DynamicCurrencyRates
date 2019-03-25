@@ -400,8 +400,8 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4C23047622264B4B00998D9A /* Build configuration list for PBXNativeTarget "currencyTests" */;
 			buildPhases = (
-				4C0AF806222BAA1400951FCA /* ShellScript */,
 				4619087F78027F649D999148 /* [CP] Check Pods Manifest.lock */,
+				4C0AF806222BAA1400951FCA /* ShellScript */,
 				4C23046622264B4B00998D9A /* Sources */,
 				4C23046722264B4B00998D9A /* Frameworks */,
 				4C23046822264B4B00998D9A /* Resources */,

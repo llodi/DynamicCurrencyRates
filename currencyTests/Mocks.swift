@@ -25,11 +25,11 @@ class BaseService: Service {
                                      completion: @escaping (M?, ApiErrorProtocol?) -> ()) {
     }
     
-//    func request<M: ApiConvertable>(path: ApiSource,
-//                                    method: HttpMethod,
-//                                    paramters: ApiParametersProtocol?,
-//                                    completion: @escaping (M?, ApiErrorProtocol?) -> ()) {
-//    }
+    func request<M: ApiConvertable>(path: ApiSource,
+                                    method: HttpMethod,
+                                    paramters: ApiParametersProtocol?,
+                                    completion: @escaping ([M], ApiErrorProtocol?) -> ()) {
+    }
 }
 
 struct ApiProvider {

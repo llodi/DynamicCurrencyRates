@@ -20,10 +20,10 @@ class ApiProvider {
         self.serverUrl = serverUrl
     }
 
-    func request<M: ApiConvertable>(path: String,
-                                    method: HttpMethod = .get,
-                                    parameters: ApiParametersProtocol?,
-                                    completion: @escaping (M?, ApiErrorProtocol?) -> ()) {
+    func request(path: String,
+                 method: HttpMethod = .get,
+                 parameters: ApiParametersProtocol?,
+                 completion: @escaping (Data?, ApiErrorProtocol?) -> ()) {
 
         guard var url = serverUrl else { return }
         
@@ -46,27 +46,16 @@ class ApiProvider {
         { (data, response, error) in
             Logger.printd(response)
             
-            let decoder = JSONDecoder()
-            
             if let err = error {
-                let apiError = ApiError(failureReason: err.localizedDescription, errorCode: 999)
+                let statusCode = (response as? HTTPURLResponse)?.statusCode ?? 999
+                let apiError = ApiError(failureReason: err.localizedDescription,
+                                        errorCode: statusCode)
                 Logger.printd(err)
                 completion(nil, apiError)
                 return
             }
             
-            guard let data = data,
-                let responseObject = try? decoder.decode(M.self, from: data) else {
-                    let apiError =
-                        ApiError(failureReason: "Error occured! Please, try again!",
-                                 errorCode: 999)
-                    Logger.printd(apiError)
-                    completion(nil, apiError)
-                return
-            }
-            
-            Logger.printd(responseObject.dictionary)
-            completion(responseObject, nil)
+            completion(data, nil)
         }
         
         request.execute()

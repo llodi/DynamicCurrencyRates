@@ -1,4 +1,4 @@
-// MARK: - Mocks generated from file: currency/Entities/CurrencyRates.swift at 2019-03-23 10:19:51 +0000
+// MARK: - Mocks generated from file: currency/Entities/CurrencyRates.swift at 2019-03-25 04:28:33 +0000
 
 //
 //  Currencies.swift
@@ -187,7 +187,7 @@ class MockCurrencyRates: CurrencyRates, Cuckoo.ClassMock {
 }
 
 
-// MARK: - Mocks generated from file: currency/Modules/CurrencyRates/Protocols/CurrencyRatesModuleProtocols.swift at 2019-03-23 10:19:51 +0000
+// MARK: - Mocks generated from file: currency/Modules/CurrencyRates/Protocols/CurrencyRatesModuleProtocols.swift at 2019-03-25 04:28:33 +0000
 
 //
 //  CurrencyModuleProtocols.swift
@@ -645,7 +645,7 @@ class MockCurrencyRatesIntercatorOutputProtocol: CurrencyRatesIntercatorOutputPr
 }
 
 
-// MARK: - Mocks generated from file: currency/Modules/CurrencyRates/Protocols/CurrencyRatesViewProtocol.swift at 2019-03-23 10:19:51 +0000
+// MARK: - Mocks generated from file: currency/Modules/CurrencyRates/Protocols/CurrencyRatesViewProtocol.swift at 2019-03-25 04:28:33 +0000
 
 //
 //  CurrencyRatesViewProtocol.swift
@@ -903,7 +903,7 @@ class MockCurrencyRatesViewProtocol: CurrencyRatesViewProtocol, Cuckoo.ProtocolM
 }
 
 
-// MARK: - Mocks generated from file: currency/Services/CurrencyService.swift at 2019-03-23 10:19:51 +0000
+// MARK: - Mocks generated from file: currency/Services/CurrencyService.swift at 2019-03-25 04:28:33 +0000
 
 //
 //  CurrencyService.swift

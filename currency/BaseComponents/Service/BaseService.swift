@@ -27,32 +27,46 @@ class BaseService: Service {
         apiProvider.request(path: path.rawValue,
                             method: method,
                             parameters: paramters)
-        { (obj, error) in
+        { (data, error) in
+            
+            guard let data = data else {
+                completion(nil, nil)
+                return
+            }
+            
+            let decoder = JSONDecoder()
+            
+            let obj = try? decoder.decode(M.self, from: data)
+            
             DispatchQueue.main.async {
                 completion(obj, error)
             }
         }
     }
-}
+
     
-//    func request<M : ApiConvertable>(path: ApiSource,
-//                                     method: HttpMethod,
-//                                     paramters: ApiParametersProtocol?,
-//                                     completion: @escaping ([M], ApiErrorProtocol?) -> ())    {
-//
-//        apiProvider.request(path: path.rawValue,
-//                            method: method,
-//                            parameters: paramters) { (value, error) in
-//
-////                                if let array = value as? [Any],
-////                                    let arrayOptionalElements = [M].deserialize(from: array) {
-////
-////
-////                                    let array = arrayOptionalElements.compactMap{ $0 }
-////                                    completion(array.compactMap{ $0 }, error)
-////                                } else {
-////                                    completion([], ApiError(failureReason: "Error Occured!", errorCode: 999))
-////                                }
-//        }
-//    }
-//}
+    func request<M : ApiConvertable>(path: ApiSource,
+                                     method: HttpMethod,
+                                     paramters: ApiParametersProtocol?,
+                                     completion: @escaping ([M], ApiErrorProtocol?) -> ())    {
+        
+        apiProvider.request(path: path.rawValue,
+                            method: method,
+                            parameters: paramters)
+        { (data, error) in
+            
+            guard let data = data else {
+                completion([], nil)
+                return
+            }
+            
+            let decoder = JSONDecoder()
+            
+            let objs = try? decoder.decode([M].self, from: data)
+            
+            DispatchQueue.main.async {
+                completion(objs ?? [], error)
+            }
+        }
+    }
+}
