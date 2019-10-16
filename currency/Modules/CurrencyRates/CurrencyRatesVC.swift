@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CurrencyRatesVC: UIViewController, CurrencyRatesViewProtocol {
+class CurrencyRatesVC: UIViewController {
 
     // MARK: - Outlets
     
@@ -52,7 +52,10 @@ class CurrencyRatesVC: UIViewController, CurrencyRatesViewProtocol {
         
         presenter?.viewWillDisappear()
     }
-    
+
+}
+extension CurrencyRatesVC: CurrencyRatesViewProtocol {
+
     // MARK: - CurrencyRatesViewProtocol
     
     func startTimer(with duration: Double) {
@@ -108,12 +111,23 @@ class CurrencyRatesVC: UIViewController, CurrencyRatesViewProtocol {
     
     func showError(reason: String) {
         let alert = UIAlertController(title: nil, message: reason, preferredStyle: .alert)
-        let action = UIAlertAction(title: _L("OK"), style: .cancel, handler: nil)
+        let action = UIAlertAction(title: Localization.ok, style: .cancel, handler: nil)
         alert.addAction(action)
         present(alert, animated: true, completion: nil)
     }
     
     func showUnknownError() {        
-        showError(reason: _L("Повторите попытку позже"))
+        showError(reason: Localization.unknownMessage)
+    }
+}
+
+
+// MARK: - Localization
+
+extension CurrencyRatesVC {
+
+    enum Localization {
+        static let unknownMessage = _L("Повторите попытку позже")
+        static let ok = _L("OK")
     }
 }

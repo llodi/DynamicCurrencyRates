@@ -11,7 +11,11 @@ import UIKit
 class CurrencyRateItemCell: UITableViewCell, NibLoadable {
     
     @IBOutlet weak var currencyName: UILabel!
-    @IBOutlet weak var currencyRateField: UITextField!
+    @IBOutlet weak var currencyRateField: UITextField! {
+        didSet {
+            currencyRateField.delegate = self
+        }
+    }
     
     var onEditingChanged: ((String) -> ())?
     
@@ -19,5 +23,14 @@ class CurrencyRateItemCell: UITableViewCell, NibLoadable {
         if let text = sender.text {
             onEditingChanged?(text)
         }
+    }
+}
+
+
+extension CurrencyRateItemCell: UITextFieldDelegate {
+
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        endEditing(true)
+        return true
     }
 }

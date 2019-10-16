@@ -27,9 +27,10 @@ class CurrencyRatesAdapter: SingleSectionBaseAdapter<RatesViewModel>, CurrencyRa
     var onSelectCurrency: ((String) -> ())?
     var onRowMovingComplete: (() -> ())?
     
-    func update(visibleCells: [CurrencyRateItemCell], source: [RatesViewModel]) {
+    func update(visibleCells: [CurrencyRateItemCell],
+                source: [RatesViewModel]) {
+
         update(new: source)
-        
         update(cells: visibleCells)
     }
     

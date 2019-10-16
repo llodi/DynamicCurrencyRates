@@ -13,13 +13,12 @@ class CurrencyRatesIntercator: CurrencyRatesIntercatorInputProtocol {
     var parameters: CurrencyRatesModuleParameters
     weak var output: CurrencyRatesIntercatorOutputProtocol?
     
-    private var service: CurrencyService
-    
-    
-    init(service: Service,
+    private var service: CurrencyServiceProtocol
+
+    init(service: CurrencyServiceProtocol,
          parameters: CurrencyRatesModuleParameters) {
        
-        self.service = service as! CurrencyService
+        self.service = service
         self.parameters = parameters
     }
     

@@ -8,8 +8,7 @@
 
 import Foundation
 
-
-class CurrencyService: BaseService {
+class CurrencyService: BaseService, CurrencyServiceProtocol {
     
     func retrieveCurrencyRates(currency: String, completion: @escaping ((CurrencyRates?, ApiErrorProtocol?) -> ())) {
         

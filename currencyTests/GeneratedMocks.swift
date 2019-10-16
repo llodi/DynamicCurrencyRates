@@ -1,4 +1,4 @@
-// MARK: - Mocks generated from file: currency/Entities/CurrencyRates.swift at 2019-03-25 04:28:33 +0000
+// MARK: - Mocks generated from file: currency/Entities/CurrencyRates.swift at 2019-10-16 13:19:45 +0000
 
 //
 //  Currencies.swift
@@ -187,7 +187,7 @@ class MockCurrencyRates: CurrencyRates, Cuckoo.ClassMock {
 }
 
 
-// MARK: - Mocks generated from file: currency/Modules/CurrencyRates/Protocols/CurrencyRatesModuleProtocols.swift at 2019-03-25 04:28:33 +0000
+// MARK: - Mocks generated from file: currency/Modules/CurrencyRates/Protocols/CurrencyRatesModuleProtocols.swift at 2019-10-16 13:19:45 +0000
 
 //
 //  CurrencyModuleProtocols.swift
@@ -645,7 +645,7 @@ class MockCurrencyRatesIntercatorOutputProtocol: CurrencyRatesIntercatorOutputPr
 }
 
 
-// MARK: - Mocks generated from file: currency/Modules/CurrencyRates/Protocols/CurrencyRatesViewProtocol.swift at 2019-03-25 04:28:33 +0000
+// MARK: - Mocks generated from file: currency/Modules/CurrencyRates/Protocols/CurrencyRatesViewProtocol.swift at 2019-10-16 13:19:45 +0000
 
 //
 //  CurrencyRatesViewProtocol.swift
@@ -903,7 +903,7 @@ class MockCurrencyRatesViewProtocol: CurrencyRatesViewProtocol, Cuckoo.ProtocolM
 }
 
 
-// MARK: - Mocks generated from file: currency/Services/CurrencyService.swift at 2019-03-25 04:28:33 +0000
+// MARK: - Mocks generated from file: currency/Services/CurrencyService.swift at 2019-10-16 13:19:45 +0000
 
 //
 //  CurrencyService.swift
@@ -928,7 +928,7 @@ class MockCurrencyService: CurrencyService, Cuckoo.ClassMock {
     
 
     
-    // ["name": "retrieveCurrencyRates", "returnSignature": "", "fullyQualifiedName": "retrieveCurrencyRates(currency: String, completion: @escaping ((CurrencyRates?, ApiErrorProtocol?) -> ()))", "parameterSignature": "currency: String, completion: @escaping ((CurrencyRates?, ApiErrorProtocol?) -> ())", "parameterSignatureWithoutNames": "currency: String, completion: @escaping ((CurrencyRates?, ApiErrorProtocol?) -> ())", "inputTypes": "String, ((CurrencyRates?, ApiErrorProtocol?) -> ())", "isThrowing": false, "isInit": false, "isOverriding": true, "hasClosureParams": true, "@type": "ClassMethod", "accessibility": "", "parameterNames": "currency, completion", "call": "currency: currency, completion: completion", "parameters": [CuckooGeneratorFramework.MethodParameter(label: Optional("currency"), name: "currency", type: "String", range: CountableRange(237..<253), nameRange: CountableRange(237..<245)), CuckooGeneratorFramework.MethodParameter(label: Optional("completion"), name: "completion", type: "@escaping ((CurrencyRates?, ApiErrorProtocol?) -> ())", range: CountableRange(255..<320), nameRange: CountableRange(255..<265))], "returnType": "Void", "isOptional": false, "stubFunction": "Cuckoo.ClassStubNoReturnFunction"]
+    // ["name": "retrieveCurrencyRates", "returnSignature": "", "fullyQualifiedName": "retrieveCurrencyRates(currency: String, completion: @escaping ((CurrencyRates?, ApiErrorProtocol?) -> ()))", "parameterSignature": "currency: String, completion: @escaping ((CurrencyRates?, ApiErrorProtocol?) -> ())", "parameterSignatureWithoutNames": "currency: String, completion: @escaping ((CurrencyRates?, ApiErrorProtocol?) -> ())", "inputTypes": "String, ((CurrencyRates?, ApiErrorProtocol?) -> ())", "isThrowing": false, "isInit": false, "isOverriding": true, "hasClosureParams": true, "@type": "ClassMethod", "accessibility": "", "parameterNames": "currency, completion", "call": "currency: currency, completion: completion", "parameters": [CuckooGeneratorFramework.MethodParameter(label: Optional("currency"), name: "currency", type: "String", range: CountableRange(261..<277), nameRange: CountableRange(261..<269)), CuckooGeneratorFramework.MethodParameter(label: Optional("completion"), name: "completion", type: "@escaping ((CurrencyRates?, ApiErrorProtocol?) -> ())", range: CountableRange(279..<344), nameRange: CountableRange(279..<289))], "returnType": "Void", "isOptional": false, "stubFunction": "Cuckoo.ClassStubNoReturnFunction"]
      override func retrieveCurrencyRates(currency: String, completion: @escaping ((CurrencyRates?, ApiErrorProtocol?) -> ()))  {
         
             return cuckoo_manager.call("retrieveCurrencyRates(currency: String, completion: @escaping ((CurrencyRates?, ApiErrorProtocol?) -> ()))",
