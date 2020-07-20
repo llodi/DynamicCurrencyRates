@@ -10,29 +10,27 @@ import Foundation
 
 class CurrencyRatesIntercator: CurrencyRatesIntercatorInputProtocol {
 
-    var parameters: CurrencyRatesModuleParameters
-    weak var output: CurrencyRatesIntercatorOutputProtocol?
-    
+    weak var output: CurrencyRatesIntercatorOutputProtocol?    
     private var service: CurrencyServiceProtocol
 
     init(service: CurrencyServiceProtocol,
-         parameters: CurrencyRatesModuleParameters) {
+         output: CurrencyRatesIntercatorOutputProtocol) {
        
         self.service = service
-        self.parameters = parameters
+        self.output = output
     }
     
     // MARK: - CurrencyRatesIntercatorInputProtocol
     
     func retrieveRates(currency: String, amount: NSDecimalNumber) {
-        service.retrieveCurrencyRates(currency: currency) { [weak weakSelf = self] (currencyRates, error) in
-            
-            if let rates = currencyRates {
-                weakSelf?.handleSuccessResponse(rates: rates, amount: amount)
-            } else if let err = error {
-                weakSelf?.output?.onError(reason: err.localizedMessage)
-            } else {
-                weakSelf?.output?.onUnknownError()
+        
+        service.retrieveCurrencyRates(currency: currency) { [weak self] result in
+
+            switch result {
+            case .failure(let error):
+                self?.output?.onError(reason: error.localizedMessage)
+            case .success(let rates):
+                self?.handleSuccessResponse(rates: rates, amount: amount)
             }
         }
     }

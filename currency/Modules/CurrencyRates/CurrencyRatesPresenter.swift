@@ -9,10 +9,11 @@
 import Foundation
 
 
-class CurrencyRatesPresenter: CurrencyRatesPresenterProtocol, CurrencyRatesIntercatorOutputProtocol {
+class CurrencyRatesPresenter {
     
-    weak var view: CurrencyRatesViewProtocol?
+    weak var view: CurrencyRatesViewInput?
     var interactor: CurrencyRatesIntercatorInputProtocol?
+//    var router:
     
     var launchDuration: Double = -1
     var currentCurrency = ""
@@ -20,22 +21,24 @@ class CurrencyRatesPresenter: CurrencyRatesPresenterProtocol, CurrencyRatesInter
     
     var isFirstLaunch = true
     
-    init(view: CurrencyRatesViewProtocol, interactor: CurrencyRatesIntercatorInputProtocol) {
+    init(view: CurrencyRatesViewInput) {
         self.view = view
-        self.interactor = interactor
     }
-    
-    // MARK: - CurrencyRatesPresenterProtocol
-    
-    func viewDidLoad() {
+}
+
+// MARK: - CurrencyRatesPresenterProtocol
+
+extension CurrencyRatesPresenter: CurrencyRatesViewOutput {
+
+    func onViewDidLoad() {
         isFirstLaunch = true
     }
     
-    func viewWillAppear() {
+    func onViewWillAppear() {
         interactor?.retrieveRates(currency: currentCurrency, amount: amount)
     }
     
-    func viewWillDisappear() {
+    func onViewWillDisappear() {
         view?.stopTimer()
     }
     
@@ -55,8 +58,11 @@ class CurrencyRatesPresenter: CurrencyRatesPresenterProtocol, CurrencyRatesInter
         let decimalAmount = NSDecimalNumber(string: amount)
         self.amount = decimalAmount == NSDecimalNumber.notANumber ? 0 : NSDecimalNumber(string: amount)
     }
-    
-    // MARK: - CurrencyRatesIntercatorOutputProtocol
+}
+
+// MARK: - CurrencyRatesIntercatorOutputProtocol
+
+extension CurrencyRatesPresenter: CurrencyRatesIntercatorOutputProtocol {
     
     func onRetrieve(rates: [(name: String, rate: NSDecimalNumber)]) {
         var rates = rates
@@ -77,14 +83,12 @@ class CurrencyRatesPresenter: CurrencyRatesPresenterProtocol, CurrencyRatesInter
     func onError(reason: String) {
         view?.showError(reason: reason)
     }
-    
-    func onUnknownError() {
-        view?.showUnknownError()
-    }
-    
-    // MARK: - Private Methods
-    
-    private func convert(model: [(name: String, rate: NSDecimalNumber)]) -> [RatesViewModel] {
+}
+// MARK: - Private Methods
+
+private extension CurrencyRatesPresenter {
+
+    func convert(model: [(name: String, rate: NSDecimalNumber)]) -> [RatesViewModel] {
         let vm = model.compactMap {
             RatesViewModel(currency: $0.name, rate: DecimalFormatterUtils.convert(decimal: $0.rate))
         }

@@ -9,9 +9,9 @@
 import Foundation
 
 
-protocol CurrencyRatesViewProtocol: class {
+protocol CurrencyRatesViewInput: class {
     
-    var presenter: CurrencyRatesPresenterProtocol? { get set }
+    var output: CurrencyRatesViewOutput? { get set }
     
     func startTimer(with duration: Double) 
     func stopTimer()
@@ -20,5 +20,17 @@ protocol CurrencyRatesViewProtocol: class {
     func update(rates: [RatesViewModel])
     
     func showError(reason: String)
-    func showUnknownError()
+}
+
+protocol CurrencyRatesViewOutput {
+    func onViewDidLoad()
+    func onViewWillAppear()
+    func onViewWillDisappear()
+
+    func onFullReloadTableFinish()
+
+    func onSelect(currency: String)
+    func onChange(amount: String)
+
+    func onInvokeTimer()
 }

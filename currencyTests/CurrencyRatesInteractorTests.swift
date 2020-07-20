@@ -9,12 +9,14 @@
 import XCTest
 import Cuckoo
 
+typealias CurrencyRatesClosure = ((Result<CurrencyRates, ApiError>) -> ())
+
 class CurrencyRatesInteractorTests: XCTestCase {
     
     var interactor: CurrencyRatesIntercator!
     var output = MockCurrencyRatesIntercatorOutputProtocol()
     var parameters = CurrencyRatesModuleParameters()
-    var service = MockCurrencyService(provider: ApiProvider())
+    var service = MockCurrencyServiceProtocol()
     
     private let error = ApiError(failureReason: "Some reason", errorCode: 500)
     private var currentCurrency = "EUR"
@@ -37,35 +39,23 @@ class CurrencyRatesInteractorTests: XCTestCase {
         stub(output) { stub in
             when(stub.onRetrieve(rates: any())).thenDoNothing()
             when(stub.onError(reason: anyString())).thenDoNothing()
-            when(stub.onUnknownError()).thenDoNothing()
         }
         
         stub(service) { stub in
-            typealias CurrencyRatesClosure = (CurrencyRates?, ApiErrorProtocol?) -> ()
             let captor = ArgumentCaptor<CurrencyRatesClosure>()
-            when(stub.retrieveCurrencyRates(currency: anyString(), completion: captor.capture())).thenDoNothing()
+            when(stub.retrieveCurrencyRates(currency: anyString(),
+                                            completion: captor.capture()))
+                .thenDoNothing()
         }
     }
     
     func test_retrieveRates_error_withReason() {
         interactor.retrieveRates(currency: currentCurrency, amount: amount)
-        typealias CurrencyRatesClosure = (CurrencyRates?, ApiErrorProtocol?) -> ()
         let captor = ArgumentCaptor<CurrencyRatesClosure>()
         verify(service).retrieveCurrencyRates(currency: anyString(), completion: captor.capture())
-        captor.value!(nil, error)
+        captor.value!(.failure(error))
         verifyNoMoreInteractions(service)
         verify(output).onError(reason: anyString())
-        verifyNoMoreInteractions(output)
-    }
-    
-    func test_retrieveRates_unknownError() {
-        interactor.retrieveRates(currency: currentCurrency, amount: amount)
-        typealias CurrencyRatesClosure = (CurrencyRates?, ApiErrorProtocol?) -> ()
-        let captor = ArgumentCaptor<CurrencyRatesClosure>()
-        verify(service).retrieveCurrencyRates(currency: anyString(), completion: captor.capture())
-        captor.value!(nil, nil)
-        verifyNoMoreInteractions(service)
-        verify(output).onUnknownError()
         verifyNoMoreInteractions(output)
     }
     
@@ -75,13 +65,12 @@ class CurrencyRatesInteractorTests: XCTestCase {
     
     func test_retrieveRates_success() {
         interactor.retrieveRates(currency: currentCurrency, amount: amount)
-        typealias CurrencyRatesClosure = (CurrencyRates?, ApiErrorProtocol?) -> ()
         let captor = ArgumentCaptor<CurrencyRatesClosure>()
         
         verify(service).retrieveCurrencyRates(currency: anyString(), completion: captor.capture())
         let decoder =  JSONDecoder()
         let rates = try? decoder.decode(CurrencyRates.self, from: json)
-        captor.value!(rates!, nil)
+        captor.value!(.success(rates!))
         verifyNoMoreInteractions(service)
         
         verify(output).onRetrieve(rates: any())

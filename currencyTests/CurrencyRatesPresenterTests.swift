@@ -12,7 +12,7 @@ import Cuckoo
 class CurrencyRatesPresenterTests: XCTestCase {
     
     let interactor = MockCurrencyRatesIntercatorInputProtocol()
-    let view = MockCurrencyRatesViewProtocol()
+    let view = MockCurrencyRatesViewInput()
     var presenter: CurrencyRatesPresenter!
     
     private var rates: [(name: String, rate: NSDecimalNumber)] = [(name: "USD", rate: 1.0)]
@@ -23,7 +23,7 @@ class CurrencyRatesPresenterTests: XCTestCase {
     override func setUp() {
         super.setUp()
         
-        presenter = CurrencyRatesPresenter(view: view, interactor: interactor)
+        presenter = CurrencyRatesPresenter(view: view as! CurrencyRatesViewInput, interactor: interactor)
         
         initStubs()
     }
@@ -43,7 +43,6 @@ class CurrencyRatesPresenterTests: XCTestCase {
             when(stub.showError(reason: anyString())).thenDoNothing()
             when(stub.show(rates: any())).thenDoNothing()
             when(stub.update(rates: any())).thenDoNothing()
-            when(stub.showUnknownError()).thenDoNothing()
         }
     }
     
@@ -53,13 +52,13 @@ class CurrencyRatesPresenterTests: XCTestCase {
     }
     
     func test_viewWillAppear() {
-        presenter.viewWillAppear()
+        presenter.onViewWillAppear()
         verify(interactor).retrieveRates(currency: anyString(), amount: any())
         verifyNoMoreInteractions(interactor)
     }
     
     func test_viewWillDisappear() {
-        presenter.viewWillDisappear()
+        presenter.onViewWillDisappear()
         verify(view).stopTimer()
         verifyNoMoreInteractions(interactor)
     }
@@ -112,12 +111,6 @@ class CurrencyRatesPresenterTests: XCTestCase {
     func test_ErrorWithReason() {
         presenter.onError(reason: errorReason)
         verify(view).showError(reason: errorReason)
-        verifyNoMoreInteractions(view)
-    }
-    
-    func test_UnknownError() {
-        presenter.onUnknownError()
-        verify(view).showUnknownError()
         verifyNoMoreInteractions(view)
     }
 }

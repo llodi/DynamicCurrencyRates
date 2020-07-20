@@ -1,13 +1,12 @@
 //
 //  HttpMethod.swift
-//  currency
+//  
 //
-//  Created by Ilya on 10/03/2019.
-//  Copyright © 2019 Revolt. All rights reserved.
+//  Created by Ilya on 12/03/2019.
+//  Copyright © 2019 Ilya Dolgopolov. All rights reserved.
 //
 
 import Foundation
-
 
 enum HttpMethod: String {
     case options = "OPTIONS"
@@ -19,5 +18,4 @@ enum HttpMethod: String {
     case delete  = "DELETE"
     case trace   = "TRACE"
     case connect = "CONNECT"
-
 }

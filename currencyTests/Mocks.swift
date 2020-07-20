@@ -15,23 +15,50 @@ import Cuckoo
 
 
 
-class BaseService: Service {
+//class BaseService: NetworkServiceProtocol {
+//
+//    required init(provider: ApiProvider) { }
+//
+//    func request<M>(path: String,
+//                    method: HttpMethod,
+//                    parameters: ApiParametersProtocol,
+//                    tryCount: Int,
+//                    completion: @escaping (ResponseResult<M, ApiError>) -> Void) where M : ApiConvertable {
+//    }
+//
+//    func cancelAllRequests() { }
+//    func cancelLastRequest() { }
+//}
 
-    
-    required init(provider: ApiProvider) { }
-    
-    func request<M : ApiConvertable>(path: ApiSource, method: HttpMethod,
-                                     paramters: ApiParametersProtocol?,
-                                     completion: @escaping (M?, ApiErrorProtocol?) -> ()) {
-    }
-    
-    func request<M: ApiConvertable>(path: ApiSource,
-                                    method: HttpMethod,
-                                    paramters: ApiParametersProtocol?,
-                                    completion: @escaping ([M], ApiErrorProtocol?) -> ()) {
+
+extension CurrencyServiceProtocol {
+
+    func cancelAllRequests() { }
+    func cancelLastRequest() { }
+
+    func request<M>(path: String,
+                    method: HttpMethod,
+                    parameters: ApiParametersProtocol,
+                    tryCount: Int,
+                    completion: @escaping (ResponseResult<M, ApiError>) -> Void) where M : ApiConvertable {
     }
 }
 
-struct ApiProvider {
-    
+
+class NetApiProvider: ApiProvider {
+    required init(serverUrl: URL?, timeoutForRequest: TimeInterval?, timeoutForResponse: TimeInterval?) {
+
+    }
+
+    func request(path: String, method: HttpMethod, parameters: ApiParametersProtocol?, completion: @escaping (Data?, ApiErrorProtocol?) -> Void) {
+
+    }
+
+    func cancelAllRequests() {
+
+    }
+
+    func cancelLastRequest() {
+
+    }
 }

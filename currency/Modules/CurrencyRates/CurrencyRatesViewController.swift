@@ -1,5 +1,5 @@
 //
-//  CurrencyRatesVC.swift
+//  CurrencyRatesViewController.swift
 //  currency
 //
 //  Created by Ilya on 02/03/2019.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CurrencyRatesVC: UIViewController {
+class CurrencyRatesViewController: UIViewController {
 
     // MARK: - Outlets
     
@@ -16,7 +16,7 @@ class CurrencyRatesVC: UIViewController {
     
     // MARK - Public vars
     
-    var presenter: CurrencyRatesPresenterProtocol?
+    var output: CurrencyRatesViewOutput?
     var editableRowIndex: Int = 0
     
     // MARK - Private vars
@@ -38,30 +38,30 @@ class CurrencyRatesVC: UIViewController {
         tableView.estimatedRowHeight = UITableView.automaticDimension
         tableView.register(cellType: CurrencyRateItemCell.self)
         
-        presenter?.viewDidLoad()
+        output?.onViewDidLoad()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        presenter?.viewWillAppear()
+        output?.onViewWillAppear()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
-        presenter?.viewWillDisappear()
+        output?.onViewWillDisappear()
     }
 
 }
-extension CurrencyRatesVC: CurrencyRatesViewProtocol {
+extension CurrencyRatesViewController: CurrencyRatesViewInput {
 
     // MARK: - CurrencyRatesViewProtocol
     
     func startTimer(with duration: Double) {
         timer?.invalidate()
         timer = Timer.scheduledTimer(withTimeInterval: duration, repeats: true) { [weak weakSelf = self] (timer) in
-            weakSelf?.presenter?.onInvokeTimer()
+            weakSelf?.output?.onInvokeTimer()
         }
     }
     
@@ -76,11 +76,11 @@ extension CurrencyRatesVC: CurrencyRatesViewProtocol {
         adapter.editableRowIndex = editableRowIndex
         
         adapter.onChangeAmount = { [weak weakSelf = self] amount in
-            weakSelf?.presenter?.onChange(amount: amount)
+            weakSelf?.output?.onChange(amount: amount)
         }
         
         adapter.onSelectCurrency = { [weak weakSelf = self] currency in
-            weakSelf?.presenter?.onSelect(currency: currency)
+            weakSelf?.output?.onSelect(currency: currency)
         }
         
         adapter.onRowMovingComplete = { [weak weakSelf = self] in
@@ -94,7 +94,7 @@ extension CurrencyRatesVC: CurrencyRatesViewProtocol {
         
         CATransaction.begin()
         CATransaction.setCompletionBlock { [weak weakSelf = self] in
-            weakSelf?.presenter?.onFullReloadTableFinish()
+            weakSelf?.output?.onFullReloadTableFinish()
         }
         
         tableView.reloadData()
@@ -115,16 +115,12 @@ extension CurrencyRatesVC: CurrencyRatesViewProtocol {
         alert.addAction(action)
         present(alert, animated: true, completion: nil)
     }
-    
-    func showUnknownError() {        
-        showError(reason: Localization.unknownMessage)
-    }
 }
 
 
 // MARK: - Localization
 
-extension CurrencyRatesVC {
+extension CurrencyRatesViewController {
 
     enum Localization {
         static let unknownMessage = _L("Повторите попытку позже")

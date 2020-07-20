@@ -41,5 +41,7 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>BaseServerUrl</key>
+	<string>https://revolut.duckdns.org</string>
 </dict>
 </plist>
